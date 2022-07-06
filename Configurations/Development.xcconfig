@@ -1,0 +1,4 @@
+BACKEND_URL = https:\/\/mobven.com\/dev
+BUNDLE_ID = antalyali.FindMyOffice.dev
+APP_NAME = FindMyOfficeDev
+SHOW_VERSION = YES

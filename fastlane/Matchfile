@@ -1,0 +1,10 @@
+git_url("https://github.com/canamaemindevar/FindMyOffice.git")
+
+storage_mode("git")
+
+type("enterprise") 
+
+app_identifier(["com.mobven.emincan.FindMyOffice",
+                "com.mobven.emincan.FindMyOffice.dev"])
+username("emincan.antalyali@mobven.com")#Your Apple Developer Portal username
+team_id("TBXF7RJBHZ")
