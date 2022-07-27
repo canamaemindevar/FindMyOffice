@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController {
                 string: "Mail",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Color")!])
             passwordTextField.attributedPlaceholder = NSAttributedString(
-                string: "Mail",
+                string: "Password",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Color")!])
         }
     }
