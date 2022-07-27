@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		FA96B55F2872FABA0025B979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B55E2872FABA0025B979 /* AppDelegate.swift */; };
 		FA96B5612872FABA0025B979 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5602872FABA0025B979 /* SceneDelegate.swift */; };
-		FA96B5632872FABA0025B979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5622872FABA0025B979 /* ViewController.swift */; };
+		FA96B5632872FABA0025B979 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5622872FABA0025B979 /* LoginViewController.swift */; };
 		FA96B5662872FABA0025B979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA96B5642872FABA0025B979 /* Main.storyboard */; };
 		FA96B5682872FABB0025B979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA96B5672872FABB0025B979 /* Assets.xcassets */; };
 		FA96B56B2872FABB0025B979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA96B5692872FABB0025B979 /* LaunchScreen.storyboard */; };
 		FA96B5762872FABC0025B979 /* FindMyOfficeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5752872FABC0025B979 /* FindMyOfficeTests.swift */; };
 		FA96B5802872FABC0025B979 /* FindMyOfficeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B57F2872FABC0025B979 /* FindMyOfficeUITests.swift */; };
 		FA96B5822872FABC0025B979 /* FindMyOfficeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5812872FABC0025B979 /* FindMyOfficeUITestsLaunchTests.swift */; };
+		FAEEE61D2890912000AA4E4F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 		FA96B55B2872FABA0025B979 /* FindMyOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96B55E2872FABA0025B979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA96B5602872FABA0025B979 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA96B5622872FABA0025B979 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA96B5622872FABA0025B979 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA96B5652872FABA0025B979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA96B5672872FABB0025B979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA96B56A2872FABB0025B979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		FA96B58F287301920025B979 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		FA96B590287301C20025B979 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FindMyOffice.entitlements; sourceTree = "<group>"; };
+		FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +108,11 @@
 				FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */,
 				FA96B55E2872FABA0025B979 /* AppDelegate.swift */,
 				FA96B5602872FABA0025B979 /* SceneDelegate.swift */,
-				FA96B5622872FABA0025B979 /* ViewController.swift */,
+				FA96B5622872FABA0025B979 /* LoginViewController.swift */,
+				FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */,
 				FA96B5642872FABA0025B979 /* Main.storyboard */,
-				FA96B5672872FABB0025B979 /* Assets.xcassets */,
 				FA96B5692872FABB0025B979 /* LaunchScreen.storyboard */,
+				FA96B5672872FABB0025B979 /* Assets.xcassets */,
 				FA96B56C2872FABB0025B979 /* Info.plist */,
 			);
 			path = FindMyOffice;
@@ -272,9 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA96B5632872FABA0025B979 /* ViewController.swift in Sources */,
+				FA96B5632872FABA0025B979 /* LoginViewController.swift in Sources */,
 				FA96B55F2872FABA0025B979 /* AppDelegate.swift in Sources */,
 				FA96B5612872FABA0025B979 /* SceneDelegate.swift in Sources */,
+				FAEEE61D2890912000AA4E4F /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
