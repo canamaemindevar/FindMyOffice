@@ -62,6 +62,9 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="QjT-lM-Eiv" kind="show" id="ZyW-OP-h0e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -87,6 +90,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i42-yL-o43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-243.07692307692307" y="-20.616113744075829"/>
+        </scene>
+        <!--Offices View Controller-->
+        <scene sceneID="RnU-NO-DdB">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="QjT-lM-Eiv" customClass="OfficesViewController" customModule="FindMyOffice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XjH-gb-Pip">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vRp-o6-S5G">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <color key="backgroundColor" name="background"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QjT-lM-Eiv" id="thb-DB-eBC"/>
+                                    <outlet property="delegate" destination="QjT-lM-Eiv" id="QLK-Id-V8U"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yQI-am-iSA"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="vRp-o6-S5G" firstAttribute="leading" secondItem="yQI-am-iSA" secondAttribute="leading" id="A7n-H6-4Qp"/>
+                            <constraint firstItem="yQI-am-iSA" firstAttribute="trailing" secondItem="vRp-o6-S5G" secondAttribute="trailing" id="K9d-ge-cAn"/>
+                            <constraint firstItem="vRp-o6-S5G" firstAttribute="top" secondItem="yQI-am-iSA" secondAttribute="top" id="Lpf-21-SfW"/>
+                            <constraint firstItem="yQI-am-iSA" firstAttribute="bottom" secondItem="vRp-o6-S5G" secondAttribute="bottom" id="O2O-Ch-P5T"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jiu-NO-ThB"/>
+                    <connections>
+                        <outlet property="tableView" destination="vRp-o6-S5G" id="Fbf-dH-NAl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uww-pJ-21n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="710"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="kCS-RV-hGf">
@@ -131,6 +169,9 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="QjT-lM-Eiv" kind="show" id="Rrc-4F-jf8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -159,6 +200,9 @@
             <point key="canvasLocation" x="691" y="-20"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rrc-4F-jf8"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="500" height="500"/>
         <namedColor name="background">
