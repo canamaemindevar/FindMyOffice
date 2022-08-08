@@ -62,7 +62,7 @@ final class OfficeDetailViewController: UIViewController {
         
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 5
+        layout.minimumLineSpacing = 15
         collectionView.setCollectionViewLayout(layout, animated: true)
         
         let image = UIImage(systemName: "rectangle.grid.2x2.fill")
@@ -128,7 +128,7 @@ extension OfficeDetailViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let gridLayout = collectionViewLayout as? UICollectionViewFlowLayout
         let widthPerItem = collectionView.frame.width / 2 - (gridLayout?.minimumInteritemSpacing ?? CGFloat())
-        return CGSize(width: widthPerItem, height: 300)
+        return CGSize(width: widthPerItem, height: 150)
     }
     
     
