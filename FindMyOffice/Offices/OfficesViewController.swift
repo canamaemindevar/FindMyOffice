@@ -63,6 +63,7 @@ extension OfficesViewController: OfficesDisplayLogic {
     
     
 }
+// MARK: tableView
 extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
    
     
@@ -85,6 +86,9 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel?.offices.count ?? 1
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.routeToOfficeDetail(index: indexPath.row)
+    }
  
     
 }

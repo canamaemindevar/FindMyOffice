@@ -6,16 +6,26 @@
 //
 
 import Foundation
+import UIKit
 
 protocol OfficeDetailRoutingLogic: AnyObject {
-    
+    func routeToFullScreen(index: Int)
 }
 
-protocol OfficeDetailDataPassing: class {
+protocol OfficeDetailDataPassing: AnyObject {
     var dataStore: OfficeDetailDataStore? { get }
 }
 
 final class OfficeDetailRouter: OfficeDetailRoutingLogic, OfficeDetailDataPassing {
+    func routeToFullScreen(index: Int) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC: FullScreenViewController = storyboard.instantiateViewController(withIdentifier: "FullScreen") as! FullScreenViewController
+        destinationVC.router?.dataStore?.officeElement = dataStore?.officeElement
+        
+        self.viewController?.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
     
     weak var viewController: OfficeDetailViewController?
     var dataStore: OfficeDetailDataStore?

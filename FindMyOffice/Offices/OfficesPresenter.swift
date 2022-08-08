@@ -17,7 +17,7 @@ final class OfficesPresenter: OfficesPresentationLogic {
     
     func presentOffices(response: Offices.Fetch.Response) {
         response.offices.forEach {
-                officePresent.append(Offices.Fetch.ViewModel.Office(name: $0.name, image: $0.image, rooms: String($0.rooms ?? 0)))
+                officePresent.append(Offices.Fetch.ViewModel.Office(name: $0.name,  rooms: String($0.rooms ?? 0),image: $0.image))
             }
             
             viewController?.displayOffice(viewModel: Offices.Fetch.ViewModel(offices: officePresent))

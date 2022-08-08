@@ -22,13 +22,22 @@ enum Offices {
         
         struct ViewModel {
             var offices:[Offices.Fetch.ViewModel.Office]
-         
+            
+            struct ImageUrls{
+                var imageUrl: String?
+            }
             
             struct Office {
-                let name : String?
-                let image : String?
-                let rooms: String?
+                var name: String?
+                var address: String?
+                var rooms: String?
+                var capacity: String?
+                var space: String?
+                var image: String?
+                var images: [ImageUrls]?
+                
             }
+          
         }
         
     }
