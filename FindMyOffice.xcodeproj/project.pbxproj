@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA28FA9D289BEC8B009B528F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FA9C289BEC8B009B528F /* API.swift */; };
+		FA28FA9F289BECAA009B528F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FA9E289BECAA009B528F /* NetworkManager.swift */; };
+		FA28FAA2289BECC8009B528F /* OfficeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA1289BECC8009B528F /* OfficeResponse.swift */; };
+		FA28FAAA289BEDA9009B528F /* Offices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA28FAA3289BEDA9009B528F /* Offices.storyboard */; };
+		FA28FAAB289BEDA9009B528F /* OfficesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA4289BEDA9009B528F /* OfficesViewController.swift */; };
+		FA28FAAC289BEDA9009B528F /* OfficesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA5289BEDA9009B528F /* OfficesPresenter.swift */; };
+		FA28FAAD289BEDA9009B528F /* OfficesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA6289BEDA9009B528F /* OfficesInteractor.swift */; };
+		FA28FAAE289BEDA9009B528F /* OfficesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA7289BEDA9009B528F /* OfficesModels.swift */; };
+		FA28FAAF289BEDA9009B528F /* OfficesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA8289BEDA9009B528F /* OfficesWorker.swift */; };
+		FA28FAB0289BEDA9009B528F /* OfficesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA9289BEDA9009B528F /* OfficesRouter.swift */; };
+		FA62C73D289E724B00794892 /* OfficeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C73B289E724B00794892 /* OfficeListCell.swift */; };
+		FA62C73E289E724B00794892 /* OfficeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA62C73C289E724B00794892 /* OfficeListCell.xib */; };
+		FA62C741289E737800794892 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FA62C740289E737800794892 /* SDWebImage */; };
+		FA62C743289E737800794892 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA62C742289E737800794892 /* SDWebImageMapKit */; };
+		FA62C74C289E948600794892 /* OfficeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA62C745289E948600794892 /* OfficeDetail.storyboard */; };
+		FA62C74D289E948600794892 /* OfficeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C746289E948600794892 /* OfficeDetailViewController.swift */; };
+		FA62C74E289E948600794892 /* OfficeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C747289E948600794892 /* OfficeDetailPresenter.swift */; };
+		FA62C74F289E948600794892 /* OfficeDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C748289E948600794892 /* OfficeDetailInteractor.swift */; };
+		FA62C750289E948600794892 /* OfficeDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C749289E948600794892 /* OfficeDetailModels.swift */; };
+		FA62C751289E948600794892 /* OfficeDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C74A289E948600794892 /* OfficeDetailWorker.swift */; };
+		FA62C752289E948600794892 /* OfficeDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C74B289E948600794892 /* OfficeDetailRouter.swift */; };
 		FA96B55F2872FABA0025B979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B55E2872FABA0025B979 /* AppDelegate.swift */; };
 		FA96B5612872FABA0025B979 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5602872FABA0025B979 /* SceneDelegate.swift */; };
 		FA96B5632872FABA0025B979 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5622872FABA0025B979 /* LoginViewController.swift */; };
@@ -16,6 +37,17 @@
 		FA96B5762872FABC0025B979 /* FindMyOfficeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5752872FABC0025B979 /* FindMyOfficeTests.swift */; };
 		FA96B5802872FABC0025B979 /* FindMyOfficeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B57F2872FABC0025B979 /* FindMyOfficeUITests.swift */; };
 		FA96B5822872FABC0025B979 /* FindMyOfficeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5812872FABC0025B979 /* FindMyOfficeUITestsLaunchTests.swift */; };
+		FAC34B6B28A44EE8004BBE64 /* fullScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC34B6928A44EE8004BBE64 /* fullScreenCell.swift */; };
+		FAC34B6C28A44EE8004BBE64 /* fullScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC34B6A28A44EE8004BBE64 /* fullScreenCell.xib */; };
+		FAD17F58289ECC42006FDD6F /* OfficeImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD17F56289ECC42006FDD6F /* OfficeImagesCell.swift */; };
+		FAD17F59289ECC42006FDD6F /* OfficeImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD17F57289ECC42006FDD6F /* OfficeImagesCell.xib */; };
+		FAE0C19028A1156B00E93887 /* FullScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE0C18928A1156A00E93887 /* FullScreen.storyboard */; };
+		FAE0C19128A1156B00E93887 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0C18A28A1156A00E93887 /* FullScreenViewController.swift */; };
+		FAE0C19228A1156B00E93887 /* FullScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0C18B28A1156A00E93887 /* FullScreenPresenter.swift */; };
+		FAE0C19328A1156B00E93887 /* FullScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0C18C28A1156A00E93887 /* FullScreenInteractor.swift */; };
+		FAE0C19428A1156B00E93887 /* FullScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0C18D28A1156A00E93887 /* FullScreenModels.swift */; };
+		FAE0C19528A1156B00E93887 /* FullScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0C18E28A1156A00E93887 /* FullScreenWorker.swift */; };
+		FAE0C19628A1156B00E93887 /* FullScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0C18F28A1156A00E93887 /* FullScreenRouter.swift */; };
 		FAEEE61D2890912000AA4E4F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +69,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA28FA9C289BEC8B009B528F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FA28FA9E289BECAA009B528F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FA28FAA1289BECC8009B528F /* OfficeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeResponse.swift; sourceTree = "<group>"; };
+		FA28FAA3289BEDA9009B528F /* Offices.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Offices.storyboard; sourceTree = "<group>"; };
+		FA28FAA4289BEDA9009B528F /* OfficesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesViewController.swift; sourceTree = "<group>"; };
+		FA28FAA5289BEDA9009B528F /* OfficesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesPresenter.swift; sourceTree = "<group>"; };
+		FA28FAA6289BEDA9009B528F /* OfficesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesInteractor.swift; sourceTree = "<group>"; };
+		FA28FAA7289BEDA9009B528F /* OfficesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesModels.swift; sourceTree = "<group>"; };
+		FA28FAA8289BEDA9009B528F /* OfficesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesWorker.swift; sourceTree = "<group>"; };
+		FA28FAA9289BEDA9009B528F /* OfficesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesRouter.swift; sourceTree = "<group>"; };
+		FA62C73B289E724B00794892 /* OfficeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeListCell.swift; sourceTree = "<group>"; };
+		FA62C73C289E724B00794892 /* OfficeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeListCell.xib; sourceTree = "<group>"; };
+		FA62C745289E948600794892 /* OfficeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OfficeDetail.storyboard; sourceTree = "<group>"; };
+		FA62C746289E948600794892 /* OfficeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDetailViewController.swift; sourceTree = "<group>"; };
+		FA62C747289E948600794892 /* OfficeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDetailPresenter.swift; sourceTree = "<group>"; };
+		FA62C748289E948600794892 /* OfficeDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDetailInteractor.swift; sourceTree = "<group>"; };
+		FA62C749289E948600794892 /* OfficeDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDetailModels.swift; sourceTree = "<group>"; };
+		FA62C74A289E948600794892 /* OfficeDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDetailWorker.swift; sourceTree = "<group>"; };
+		FA62C74B289E948600794892 /* OfficeDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDetailRouter.swift; sourceTree = "<group>"; };
 		FA96B55B2872FABA0025B979 /* FindMyOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96B55E2872FABA0025B979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA96B5602872FABA0025B979 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +104,17 @@
 		FA96B58F287301920025B979 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		FA96B590287301C20025B979 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FindMyOffice.entitlements; sourceTree = "<group>"; };
+		FAC34B6928A44EE8004BBE64 /* fullScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fullScreenCell.swift; sourceTree = "<group>"; };
+		FAC34B6A28A44EE8004BBE64 /* fullScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = fullScreenCell.xib; sourceTree = "<group>"; };
+		FAD17F56289ECC42006FDD6F /* OfficeImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeImagesCell.swift; sourceTree = "<group>"; };
+		FAD17F57289ECC42006FDD6F /* OfficeImagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeImagesCell.xib; sourceTree = "<group>"; };
+		FAE0C18928A1156A00E93887 /* FullScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullScreen.storyboard; sourceTree = "<group>"; };
+		FAE0C18A28A1156A00E93887 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
+		FAE0C18B28A1156A00E93887 /* FullScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPresenter.swift; sourceTree = "<group>"; };
+		FAE0C18C28A1156A00E93887 /* FullScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenInteractor.swift; sourceTree = "<group>"; };
+		FAE0C18D28A1156A00E93887 /* FullScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenModels.swift; sourceTree = "<group>"; };
+		FAE0C18E28A1156A00E93887 /* FullScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenWorker.swift; sourceTree = "<group>"; };
+		FAE0C18F28A1156A00E93887 /* FullScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenRouter.swift; sourceTree = "<group>"; };
 		FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA62C743289E737800794892 /* SDWebImageMapKit in Frameworks */,
+				FA62C741289E737800794892 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +145,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA20889F289EC2B8005B8F37 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA62C73C289E724B00794892 /* OfficeListCell.xib */,
+				FA62C73B289E724B00794892 /* OfficeListCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		FA2088A0289EC2CA005B8F37 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAD17F56289ECC42006FDD6F /* OfficeImagesCell.swift */,
+				FAD17F57289ECC42006FDD6F /* OfficeImagesCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		FA28FA9B289BEC7E009B528F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FA28FA9C289BEC8B009B528F /* API.swift */,
+				FA28FA9E289BECAA009B528F /* NetworkManager.swift */,
+				FA28FAA1289BECC8009B528F /* OfficeResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FA28FAB1289BEDB8009B528F /* Offices */ = {
+			isa = PBXGroup;
+			children = (
+				FA28FAA3289BEDA9009B528F /* Offices.storyboard */,
+				FA28FAA4289BEDA9009B528F /* OfficesViewController.swift */,
+				FA28FAA5289BEDA9009B528F /* OfficesPresenter.swift */,
+				FA28FAA6289BEDA9009B528F /* OfficesInteractor.swift */,
+				FA28FAA7289BEDA9009B528F /* OfficesModels.swift */,
+				FA28FAA8289BEDA9009B528F /* OfficesWorker.swift */,
+				FA28FAA9289BEDA9009B528F /* OfficesRouter.swift */,
+			);
+			path = Offices;
+			sourceTree = "<group>";
+		};
+		FA62C736289E710D00794892 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA2088A0289EC2CA005B8F37 /* CollectionViewCell */,
+				FA20889F289EC2B8005B8F37 /* TableViewCell */,
+				FAC34B6D28A4E26F004BBE64 /* FullScreenCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA62C744289E944D00794892 /* OfficeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FA62C745289E948600794892 /* OfficeDetail.storyboard */,
+				FA62C746289E948600794892 /* OfficeDetailViewController.swift */,
+				FA62C747289E948600794892 /* OfficeDetailPresenter.swift */,
+				FA62C748289E948600794892 /* OfficeDetailInteractor.swift */,
+				FA62C749289E948600794892 /* OfficeDetailModels.swift */,
+				FA62C74A289E948600794892 /* OfficeDetailWorker.swift */,
+				FA62C74B289E948600794892 /* OfficeDetailRouter.swift */,
+			);
+			path = OfficeDetail;
+			sourceTree = "<group>";
+		};
 		FA96B5522872FAB90025B979 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +235,11 @@
 		FA96B55D2872FABA0025B979 /* FindMyOffice */ = {
 			isa = PBXGroup;
 			children = (
+				FA28FA9B289BEC7E009B528F /* Network */,
+				FA62C736289E710D00794892 /* Cells */,
+				FA28FAB1289BEDB8009B528F /* Offices */,
+				FA62C744289E944D00794892 /* OfficeDetail */,
+				FAE0C19728A1212300E93887 /* FullScreen */,
 				FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */,
 				FA96B55E2872FABA0025B979 /* AppDelegate.swift */,
 				FA96B5602872FABA0025B979 /* SceneDelegate.swift */,
@@ -144,6 +279,29 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		FAC34B6D28A4E26F004BBE64 /* FullScreenCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAC34B6928A44EE8004BBE64 /* fullScreenCell.swift */,
+				FAC34B6A28A44EE8004BBE64 /* fullScreenCell.xib */,
+			);
+			path = FullScreenCell;
+			sourceTree = "<group>";
+		};
+		FAE0C19728A1212300E93887 /* FullScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0C18928A1156A00E93887 /* FullScreen.storyboard */,
+				FAE0C18A28A1156A00E93887 /* FullScreenViewController.swift */,
+				FAE0C18B28A1156A00E93887 /* FullScreenPresenter.swift */,
+				FAE0C18C28A1156A00E93887 /* FullScreenInteractor.swift */,
+				FAE0C18D28A1156A00E93887 /* FullScreenModels.swift */,
+				FAE0C18E28A1156A00E93887 /* FullScreenWorker.swift */,
+				FAE0C18F28A1156A00E93887 /* FullScreenRouter.swift */,
+			);
+			path = FullScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,6 +318,10 @@
 			dependencies = (
 			);
 			name = FindMyOffice;
+			packageProductDependencies = (
+				FA62C740289E737800794892 /* SDWebImage */,
+				FA62C742289E737800794892 /* SDWebImageMapKit */,
+			);
 			productName = FindMyOffice;
 			productReference = FA96B55B2872FABA0025B979 /* FindMyOffice.app */;
 			productType = "com.apple.product-type.application";
@@ -232,6 +394,9 @@
 				Base,
 			);
 			mainGroup = FA96B5522872FAB90025B979;
+			packageReferences = (
+				FA62C73F289E737800794892 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = FA96B55C2872FABA0025B979 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,9 +413,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA28FAAA289BEDA9009B528F /* Offices.storyboard in Resources */,
+				FAC34B6C28A44EE8004BBE64 /* fullScreenCell.xib in Resources */,
+				FA62C74C289E948600794892 /* OfficeDetail.storyboard in Resources */,
 				FA96B56B2872FABB0025B979 /* LaunchScreen.storyboard in Resources */,
+				FAD17F59289ECC42006FDD6F /* OfficeImagesCell.xib in Resources */,
 				FA96B5682872FABB0025B979 /* Assets.xcassets in Resources */,
+				FA62C73E289E724B00794892 /* OfficeListCell.xib in Resources */,
 				FA96B5662872FABA0025B979 /* Main.storyboard in Resources */,
+				FAE0C19028A1156B00E93887 /* FullScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +446,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE0C19528A1156B00E93887 /* FullScreenWorker.swift in Sources */,
+				FA28FAAD289BEDA9009B528F /* OfficesInteractor.swift in Sources */,
+				FA28FA9F289BECAA009B528F /* NetworkManager.swift in Sources */,
 				FA96B5632872FABA0025B979 /* LoginViewController.swift in Sources */,
+				FAE0C19328A1156B00E93887 /* FullScreenInteractor.swift in Sources */,
 				FA96B55F2872FABA0025B979 /* AppDelegate.swift in Sources */,
+				FAE0C19228A1156B00E93887 /* FullScreenPresenter.swift in Sources */,
+				FA62C750289E948600794892 /* OfficeDetailModels.swift in Sources */,
+				FA28FAAE289BEDA9009B528F /* OfficesModels.swift in Sources */,
+				FA62C73D289E724B00794892 /* OfficeListCell.swift in Sources */,
 				FA96B5612872FABA0025B979 /* SceneDelegate.swift in Sources */,
+				FA28FAAB289BEDA9009B528F /* OfficesViewController.swift in Sources */,
+				FAE0C19428A1156B00E93887 /* FullScreenModels.swift in Sources */,
+				FAE0C19128A1156B00E93887 /* FullScreenViewController.swift in Sources */,
+				FAC34B6B28A44EE8004BBE64 /* fullScreenCell.swift in Sources */,
+				FA28FAAC289BEDA9009B528F /* OfficesPresenter.swift in Sources */,
+				FA62C751289E948600794892 /* OfficeDetailWorker.swift in Sources */,
 				FAEEE61D2890912000AA4E4F /* RegisterViewController.swift in Sources */,
+				FA62C74D289E948600794892 /* OfficeDetailViewController.swift in Sources */,
+				FA28FAA2289BECC8009B528F /* OfficeResponse.swift in Sources */,
+				FAD17F58289ECC42006FDD6F /* OfficeImagesCell.swift in Sources */,
+				FA28FA9D289BEC8B009B528F /* API.swift in Sources */,
+				FAE0C19628A1156B00E93887 /* FullScreenRouter.swift in Sources */,
+				FA62C74E289E948600794892 /* OfficeDetailPresenter.swift in Sources */,
+				FA62C74F289E948600794892 /* OfficeDetailInteractor.swift in Sources */,
+				FA28FAAF289BEDA9009B528F /* OfficesWorker.swift in Sources */,
+				FA28FAB0289BEDA9009B528F /* OfficesRouter.swift in Sources */,
+				FA62C752289E948600794892 /* OfficeDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +663,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -500,6 +696,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -674,6 +871,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -802,6 +1000,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -906,6 +1105,30 @@
 			defaultConfigurationName = ProductionRelease;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA62C73F289E737800794892 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA62C740289E737800794892 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA62C73F289E737800794892 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		FA62C742289E737800794892 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA62C73F289E737800794892 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA96B5532872FAB90025B979 /* Project object */;
 }
