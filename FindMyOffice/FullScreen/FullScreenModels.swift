@@ -17,11 +17,13 @@ enum FullScreen {
         }
         
         struct Response {
-            var responseImages: OfficeResponseElement?
+            var responseImages: [String]?
+            var selectedImageIndex: Int?
         }
         
         struct ViewModel {
             var images: [String]
+            var selectedImageIndex: Int?
         }
         
     }

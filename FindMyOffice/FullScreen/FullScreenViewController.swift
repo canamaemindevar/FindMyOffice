@@ -12,13 +12,22 @@ protocol FullScreenDisplayLogic: AnyObject {
     func displayPics(viewModel:FullScreen.Fetch.ViewModel)
 }
 
+protocol getIndex: AnyObject{
+    func fullScreenIndexPath(indexPath: IndexPath)
+}
+
+
 final class FullScreenViewController: UIViewController {
-    @IBOutlet var scrollView: UIScrollView!
+    
+    @IBOutlet weak var fullScreenCollectionView: UICollectionView!
     
     var interactor: FullScreenBusinessLogic?
     var router: (FullScreenRoutingLogic & FullScreenDataPassing)?
     
     var viewModel: FullScreen.Fetch.ViewModel?
+    weak var delegate: getIndex?
+    
+    
     
     // MARK: Object lifecycle
     
@@ -33,10 +42,16 @@ final class FullScreenViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  scrollView.frame
+        self.fullScreenCollectionView.register(UINib(nibName: "fullScreenCell", bundle: .main), forCellWithReuseIdentifier: "fullScreenCell")
         interactor?.fetchOfficePics(request: OfficeDetail.Fetch.Request())
-        config(viewModel: FullScreen.Fetch.ViewModel(images: viewModel?.images ?? []))
+        setupCollection()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        fullScreenCollectionView.scrollToItem(at: IndexPath(row: viewModel?.selectedImageIndex ?? 0, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
     
     // MARK: Setup
     
@@ -57,21 +72,51 @@ final class FullScreenViewController: UIViewController {
 extension FullScreenViewController: FullScreenDisplayLogic {
     func displayPics(viewModel: FullScreen.Fetch.ViewModel) {
         self.viewModel = viewModel
-    }
-    
-    
-    func config(viewModel: FullScreen.Fetch.ViewModel){
-        for i in 0..<viewModel.images.count {
-            let imageView = UIImageView()
-            let x = self.view.frame.size.width * CGFloat(i)
-            imageView.frame = CGRect(x: x, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-            imageView.contentMode = .scaleAspectFit
-            imageView.sd_setImage(with: URL(string: viewModel.images[i]))
-                    
-            scrollView.contentSize.width = scrollView.frame.size.width * CGFloat(i + 1)
-            scrollView.addSubview(imageView)
+        DispatchQueue.main.async {
+            self.fullScreenCollectionView.reloadData()
         }
+       
+    }
+}
+
+extension FullScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.images.count ?? 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = fullScreenCollectionView.dequeueReusableCell(withReuseIdentifier: "fullScreenCell", for: indexPath) as? fullScreenCell else {
+            return UICollectionViewCell() }
+        cell.config(images: viewModel?.images[indexPath.row])
     
+            return cell
+        }
+    
+    
+    
+    
+}
+
+extension FullScreenViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 1) // soldan sağdan... ne kadar boşluk istiyor
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+      //  let gridLayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let widthPerItem = collectionView.frame.width  // - (gridLayout?.minimumInteritemSpacing ?? CGFloat())
+        let heigthPerItem = collectionView.frame.height
+        
+        
+        
+        return CGSize(width: widthPerItem, height: heigthPerItem)
+    }
+
+    func setupCollection(){
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        fullScreenCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+
 }

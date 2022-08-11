@@ -75,8 +75,11 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = viewModel?.offices[indexPath.row]  else {
             return UITableViewCell()
         }
+        cell.layer.borderWidth = 2
+        cell.layer.cornerRadius = 5
+        cell.layer.borderColor = UIColor(named: "btnBorderColor")?.cgColor
+        cell.configure(viewModel: model)
         
-            cell.configure(viewModel: model)
 
         return cell
     }

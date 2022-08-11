@@ -13,7 +13,7 @@ protocol OfficesPresentationLogic: AnyObject {
 
 final class OfficesPresenter: OfficesPresentationLogic {
     
-    var officePresent: [Offices.Fetch.ViewModel.Office] = []
+   var officePresent: [Offices.Fetch.ViewModel.Office] = []
     
     func presentOffices(response: Offices.Fetch.Response) {
         response.offices.forEach {

@@ -3,30 +3,58 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Full Screen View Controller-->
         <scene sceneID="D3m-6j-bBI">
             <objects>
-                <viewController id="nxe-uw-h5I" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FullScreen" id="nxe-uw-h5I" customClass="FullScreenViewController" customModule="FindMyOffice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="chM-je-gA4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NaW-d3-0qU">
+                                <rect key="frame" x="0.0" y="300" width="414" height="296"/>
+                                <color key="backgroundColor" name="background"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NaW-d3-0qU" secondAttribute="height" multiplier="207:148" id="VtO-AS-7AY"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bc2-XU-YtF">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nxe-uw-h5I" id="LI2-dL-UfX"/>
+                                    <outlet property="delegate" destination="nxe-uw-h5I" id="k6D-Iy-hdW"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="acR-sl-ate"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="NaW-d3-0qU" firstAttribute="width" secondItem="chM-je-gA4" secondAttribute="width" id="XQw-RB-zU8"/>
+                            <constraint firstItem="NaW-d3-0qU" firstAttribute="centerY" secondItem="chM-je-gA4" secondAttribute="centerY" id="gTt-fw-mpn"/>
+                            <constraint firstItem="NaW-d3-0qU" firstAttribute="centerX" secondItem="chM-je-gA4" secondAttribute="centerX" id="hE5-N4-xd9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fullScreenCollectionView" destination="NaW-d3-0qU" id="YeR-EY-nLB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZo-gs-e4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="107" y="28"/>
+            <point key="canvasLocation" x="105.79710144927537" y="27.455357142857142"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="background">
+            <color red="0.97600001096725464" green="0.85500001907348633" blue="0.3919999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

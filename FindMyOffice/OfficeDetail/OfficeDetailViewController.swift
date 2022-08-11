@@ -96,7 +96,7 @@ extension OfficeDetailViewController: UICollectionViewDelegate, UICollectionView
         guard let model = viewModel else {
             return UICollectionViewCell()
         }
-       cell.configure(viewModel: model)
+        cell.configure(images: model.images?[indexPath.row] ?? "")
         
         return cell ?? UICollectionViewCell()
         

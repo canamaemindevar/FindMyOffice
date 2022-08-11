@@ -17,10 +17,13 @@ class OfficeImagesCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func configure(viewModel: OfficeDetail.Fetch.ViewModel ){
-        viewModel.images?.forEach({ result in
-            officeImagesView.sd_setImage(with: URL(string: result))
-        })
+    func configure(images: String){
+
+         officeImagesView.sd_setImage(with: URL(string: images))
+
+//        viewModel.images?.forEach({ result in
+//            officeImagesView.sd_setImage(with: URL(string: result))
+//        })
 
     }
 

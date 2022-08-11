@@ -99,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vRp-o6-S5G">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vRp-o6-S5G">
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <color key="backgroundColor" name="background"/>
                                 <connections>
@@ -120,7 +120,7 @@
                     <navigationItem key="navigationItem" id="Jiu-NO-ThB"/>
                     <connections>
                         <outlet property="tableView" destination="vRp-o6-S5G" id="Fbf-dH-NAl"/>
-                        <segue destination="myU-YL-Ef6" kind="show" id="my5-UR-kqI"/>
+                        <segue destination="myU-YL-Ef6" kind="presentation" modalPresentationStyle="fullScreen" id="my5-UR-kqI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uww-pJ-21n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -171,7 +171,7 @@
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="ljR-Kv-rDq" kind="show" id="Rrc-4F-jf8"/>
+                                            <segue destination="ljR-Kv-rDq" kind="presentation" modalPresentationStyle="fullScreen" id="Rrc-4F-jf8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -224,11 +224,26 @@
             <objects>
                 <viewController storyboardIdentifier="OfficeDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="myU-YL-Ef6" customClass="OfficeDetailViewController" customModule="FindMyOffice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LhO-Wh-ZT9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t9K-z2-Lsh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="225.5"/>
+                                <color key="backgroundColor" name="background"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lO2-6F-DU9">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="myU-YL-Ef6" id="mST-wu-DBf"/>
+                                    <outlet property="delegate" destination="myU-YL-Ef6" id="iEY-9v-BZ1"/>
+                                </connections>
+                            </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R72-3P-Q1w">
-                                <rect key="frame" x="0.0" y="270.5" width="414" height="340"/>
+                                <rect key="frame" x="0.0" y="269.5" width="414" height="340"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP4-ek-aPF">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
@@ -322,21 +337,6 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t9K-z2-Lsh">
-                                <rect key="frame" x="0.0" y="56" width="414" height="214.5"/>
-                                <color key="backgroundColor" name="background"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lO2-6F-DU9">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="myU-YL-Ef6" id="mST-wu-DBf"/>
-                                    <outlet property="delegate" destination="myU-YL-Ef6" id="iEY-9v-BZ1"/>
-                                </connections>
-                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YF4-ww-Hfd"/>
                         <color key="backgroundColor" name="background"/>
@@ -360,33 +360,11 @@
                         <outlet property="nameLabel" destination="aba-uY-zkk" id="Rt7-cF-Jnn"/>
                         <outlet property="roomsLabel" destination="IZP-0B-wqh" id="xYm-qh-I2Q"/>
                         <outlet property="spaceLabel" destination="r5G-lE-hFq" id="lfs-qg-mWM"/>
-                        <segue destination="kDu-Im-jGs" kind="show" id="7aO-Kz-qJt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIw-B6-S5x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2044.6153846153845" y="708.76777251184831"/>
-        </scene>
-        <!--Full Screen View Controller-->
-        <scene sceneID="cxd-nz-wff">
-            <objects>
-                <viewController storyboardIdentifier="FullScreen" id="kDu-Im-jGs" customClass="FullScreenViewController" customModule="FindMyOffice" customModuleProvider="target" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="qJ4-ty-ukX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Omb-1Y-TiW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <viewLayoutGuide key="contentLayoutGuide" id="WSm-jE-IEp"/>
-                        <viewLayoutGuide key="frameLayoutGuide" id="VSq-eg-ZRB"/>
-                    </scrollView>
-                    <navigationItem key="navigationItem" id="BWl-x6-f33"/>
-                    <connections>
-                        <outlet property="scrollView" destination="qJ4-ty-ukX" id="Dcp-yV-hdS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qwF-dc-fhi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2907" y="716"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -399,9 +377,6 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
