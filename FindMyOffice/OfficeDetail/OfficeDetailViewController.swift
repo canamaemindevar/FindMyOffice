@@ -68,6 +68,7 @@ final class OfficeDetailViewController: UIViewController {
         let image = UIImage(systemName: "rectangle.grid.2x2.fill")
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(tapped))
         navigationItem.rightBarButtonItem = button
+        
     }
     
     override func viewDidLoad()  {
@@ -98,7 +99,7 @@ extension OfficeDetailViewController: UICollectionViewDelegate, UICollectionView
         }
         cell.configure(images: model.images?[indexPath.row] ?? "")
         
-        return cell ?? UICollectionViewCell()
+        return cell 
         
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -119,6 +120,12 @@ extension OfficeDetailViewController: UICollectionViewDelegate, UICollectionView
         collectionView.reloadData()
     }
     
+    
+//    func getIndex(indexPath: IndexPath){ // from fullscreen
+//        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//    }
+    
+    
 }
 
 extension OfficeDetailViewController: UICollectionViewDelegateFlowLayout{
@@ -135,12 +142,7 @@ extension OfficeDetailViewController: UICollectionViewDelegateFlowLayout{
 }
 
 
-extension OfficeDetailViewController:
-    
-    
-    
-    
-    OfficeDetailDisplayLogic {
+extension OfficeDetailViewController: OfficeDetailDisplayLogic , getIndexFromFull {
     func displayOfficeDetail(viewModel: OfficeDetail.Fetch.ViewModel) {
         self.viewModel = viewModel
         DispatchQueue.main.async {
@@ -153,6 +155,14 @@ extension OfficeDetailViewController:
             
             
         }
+    }
+    
+    func   fullScreenIndexPath(indexPath: IndexPath){
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+        
     }
     
     

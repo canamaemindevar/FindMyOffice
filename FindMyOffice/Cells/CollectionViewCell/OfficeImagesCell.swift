@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class OfficeImagesCell: UICollectionViewCell {
 
@@ -21,9 +22,6 @@ class OfficeImagesCell: UICollectionViewCell {
 
          officeImagesView.sd_setImage(with: URL(string: images))
 
-//        viewModel.images?.forEach({ result in
-//            officeImagesView.sd_setImage(with: URL(string: result))
-//        })
 
     }
 

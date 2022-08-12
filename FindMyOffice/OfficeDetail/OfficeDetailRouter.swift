@@ -19,14 +19,15 @@ protocol OfficeDetailDataPassing: AnyObject {
 final class OfficeDetailRouter: OfficeDetailRoutingLogic, OfficeDetailDataPassing {
     func routeToFullScreen(index: Int) {
         
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let destinationVC: FullScreenViewController = storyboard.instantiateViewController(withIdentifier: "FullScreen") as! FullScreenViewController
+
         let storyboard = UIStoryboard(name: "FullScreen", bundle: nil)
         let destinationVC: FullScreenViewController = storyboard.instantiateViewController(withIdentifier: "FullScreen") as! FullScreenViewController
         destinationVC.router?.dataStore?.officeElement = dataStore?.officeElement
         
         destinationVC.router?.dataStore?.selectedImageIndex = index
+        destinationVC.delegate = viewController 
         self.viewController?.navigationController?.pushViewController(destinationVC, animated: true)
+        
     }
     
     

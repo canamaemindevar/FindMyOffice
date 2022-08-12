@@ -12,7 +12,7 @@ protocol FullScreenDisplayLogic: AnyObject {
     func displayPics(viewModel:FullScreen.Fetch.ViewModel)
 }
 
-protocol getIndex: AnyObject{
+protocol getIndexFromFull: AnyObject{
     func fullScreenIndexPath(indexPath: IndexPath)
 }
 
@@ -25,7 +25,7 @@ final class FullScreenViewController: UIViewController {
     var router: (FullScreenRoutingLogic & FullScreenDataPassing)?
     
     var viewModel: FullScreen.Fetch.ViewModel?
-    weak var delegate: getIndex?
+    weak var delegate: getIndexFromFull?
     
     
     
@@ -99,7 +99,7 @@ extension FullScreenViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension FullScreenViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 1) // soldan sağdan... ne kadar boşluk istiyor
+        UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 1)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       //  let gridLayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -118,5 +118,18 @@ extension FullScreenViewController: UICollectionViewDelegateFlowLayout{
         layout.minimumLineSpacing = 0
         fullScreenCollectionView.setCollectionViewLayout(layout, animated: true)
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let visibleRect = CGRect(origin: fullScreenCollectionView.contentOffset, size: fullScreenCollectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        guard let visibleIndexPath = fullScreenCollectionView.indexPathForItem(at: visiblePoint) else {
+            return 
+        }
+        delegate?.fullScreenIndexPath(indexPath: visibleIndexPath)
+        
+    
+    }
 
 }
+
+
