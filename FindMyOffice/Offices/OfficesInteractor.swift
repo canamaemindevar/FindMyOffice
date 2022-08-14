@@ -14,6 +14,9 @@ protocol OfficesBusinessLogic: AnyObject {
 protocol OfficesDataStore: AnyObject {
     var officeData: OfficeResponse? {get}
 }
+protocol GetFilteredData: AnyObject{
+    func filterRequest(request: String)
+}
 
 final class OfficesInteractor: OfficesBusinessLogic, OfficesDataStore {
     var officeData: OfficeResponse?
@@ -38,4 +41,21 @@ final class OfficesInteractor: OfficesBusinessLogic, OfficesDataStore {
     var presenter: OfficesPresentationLogic?
     var worker: OfficesWorkingLogic = OfficesWorker()
     
+}
+
+extension OfficesInteractor: GetFilteredData{
+    
+    
+    
+    func filterRequest(request: String) {
+        let filteredData = officeData?.filter{ result in
+            
+            return String(result.rooms ?? 0) == request || result.capacity == request || result.space == request
+        }
+        guard let filteredData = filteredData else {return}
+        self.presenter?.presentOffices(response: Offices.Fetch.Response(offices:(filteredData)))
+        print(filteredData)
+    }
+
+
 }

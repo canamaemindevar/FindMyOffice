@@ -13,9 +13,12 @@ protocol OfficesPresentationLogic: AnyObject {
 
 final class OfficesPresenter: OfficesPresentationLogic {
     
-   var officePresent: [Offices.Fetch.ViewModel.Office] = []
+   
     
     func presentOffices(response: Offices.Fetch.Response) {
+        
+        var officePresent: [Offices.Fetch.ViewModel.Office] = []
+        
         response.offices.forEach {
                 officePresent.append(Offices.Fetch.ViewModel.Office(name: $0.name,  rooms: String($0.rooms ?? 0),image: $0.image))
             }

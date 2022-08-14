@@ -96,36 +96,48 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="QjT-lM-Eiv" customClass="OfficesViewController" customModule="FindMyOffice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XjH-gb-Pip">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vRp-o6-S5G">
-                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="118" width="414" height="744"/>
                                 <color key="backgroundColor" name="background"/>
                                 <connections>
                                     <outlet property="dataSource" destination="QjT-lM-Eiv" id="thb-DB-eBC"/>
                                     <outlet property="delegate" destination="QjT-lM-Eiv" id="QLK-Id-V8U"/>
                                 </connections>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filter" textAlignment="natural" minimumFontSize="17" id="gDY-gO-9zj">
+                                <rect key="frame" x="81" y="88" width="253" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QjT-lM-Eiv" id="EWL-v2-fa6"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yQI-am-iSA"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="vRp-o6-S5G" firstAttribute="leading" secondItem="yQI-am-iSA" secondAttribute="leading" id="A7n-H6-4Qp"/>
                             <constraint firstItem="yQI-am-iSA" firstAttribute="trailing" secondItem="vRp-o6-S5G" secondAttribute="trailing" id="K9d-ge-cAn"/>
-                            <constraint firstItem="vRp-o6-S5G" firstAttribute="top" secondItem="yQI-am-iSA" secondAttribute="top" id="Lpf-21-SfW"/>
+                            <constraint firstItem="vRp-o6-S5G" firstAttribute="top" secondItem="yQI-am-iSA" secondAttribute="top" constant="30" id="Lpf-21-SfW"/>
                             <constraint firstItem="yQI-am-iSA" firstAttribute="bottom" secondItem="vRp-o6-S5G" secondAttribute="bottom" id="O2O-Ch-P5T"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Jiu-NO-ThB"/>
+                    <navigationItem key="navigationItem" id="Jiu-NO-ThB">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="filterTextField" destination="gDY-gO-9zj" id="bSz-Bg-hcr"/>
                         <outlet property="tableView" destination="vRp-o6-S5G" id="Fbf-dH-NAl"/>
                         <segue destination="myU-YL-Ef6" kind="presentation" modalPresentationStyle="fullScreen" id="my5-UR-kqI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uww-pJ-21n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.9230769230769" y="709.47867298578194"/>
+            <point key="canvasLocation" x="1095.6521739130435" y="709.15178571428567"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="kCS-RV-hGf">
@@ -368,7 +380,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZyW-OP-h0e"/>
+        <segue reference="Rrc-4F-jf8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="500" height="500"/>

@@ -43,4 +43,10 @@ enum Offices {
     }
     
 }
+struct Options {
+    var options: String?
+    var values: [String?]
+
+    
+}
 // swiftlint:enable nesting

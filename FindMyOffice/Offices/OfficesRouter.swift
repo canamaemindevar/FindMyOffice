@@ -16,6 +16,7 @@ protocol OfficesDataPassing: AnyObject {
     var dataStore: OfficesDataStore? { get }
 }
 
+
 final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing {
     func routeToOfficeDetail(index: Int) {
 
@@ -31,3 +32,7 @@ final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing {
     var dataStore: OfficesDataStore?
     
 }
+
+
+// MARK: filter
+

@@ -14,9 +14,15 @@ protocol OfficesDisplayLogic: AnyObject {
 final class OfficesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var interactor: OfficesBusinessLogic?
+    var interactor: (OfficesBusinessLogic & GetFilteredData)?
     var router: (OfficesRoutingLogic & OfficesDataPassing)?
     var viewModel: Offices.Fetch.ViewModel?
+    var pickerView = UIPickerView()
+    
+    var options = [Options]()
+    
+    @IBOutlet weak var filterTextField: UITextField!
+    
     
     // MARK: Object lifecycle
     
@@ -33,7 +39,30 @@ final class OfficesViewController: UIViewController {
     override func viewDidLoad() {
         interactor?.fetchOffices(request: Offices.Fetch.Request())
         tableView.register(UINib(nibName: "OfficeListCell", bundle: nil), forCellReuseIdentifier: "MyCell")
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
+        setupOptions()
+        filterTextField.inputView = pickerView
+        createToolBarForPickerView()
     }
+    
+    func createToolBarForPickerView(){
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.isUserInteractionEnabled = true
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dissmisButton))
+        
+        toolBar.setItems([doneButton], animated: false)
+        
+        filterTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func dissmisButton() {
+        view.endEditing(true)
+    }
+    
     
     // MARK: Setup
     
@@ -49,6 +78,18 @@ final class OfficesViewController: UIViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
+    
+    private func setupOptions(){
+        let capacityOptions: Options = .init(options: "Capacity", values: ["0-5","5-10","10-15","15-20"])
+        let roomsOptions: Options = .init(options: "Rooms", values: ["2","4","5","8","10","12"])
+        let spaceOptions: Options = .init(options: "Space", values: ["75","100","101","125","165","250"])
+        options.append(capacityOptions)
+        options.append(roomsOptions)
+        options.append(spaceOptions)
+    }
+    
+ 
+    
 }
 
 extension OfficesViewController: OfficesDisplayLogic {
@@ -95,3 +136,62 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
  
     
 }
+
+
+
+extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return options.count
+        }
+        else {
+            return options[pickerView.selectedRow(inComponent: 0)].values.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return options[row].options
+        } else {
+            let selectedData = pickerView.selectedRow(inComponent: 0)
+         
+            return options[selectedData].values[row]
+            
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerView.reloadComponent(1)
+        let selectedData = pickerView.selectedRow(inComponent: 0)
+        let selectItem = options[selectedData].values[row]
+        filterTextField.text = selectItem
+        interactor?.filterRequest(request: selectItem ?? "")
+        
+        
+        
+    }
+    
+    
+    
+    
+}
+
+
+/*
+ func toolbarSetup(){
+     let toolBar = UIToolbar()
+     toolBar.sizeToFit()
+     toolBar.isUserInteractionEnabled = true
+     let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closePickerView))
+     filterTextField.inputAccessoryView = toolBar
+     toolBar.setItems([doneButton], animated: true)
+ 
+ }
+ @objc func closePickerView() {
+     view.endEditing(true)
+     print("eeee")
+}
+ */
