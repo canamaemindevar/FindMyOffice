@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
 
@@ -24,7 +25,9 @@ class LoginViewController: UIViewController {
             // hide
         }
         
-        
+//        self.save(value: "Deneme1")
+//        self.save(value: "Deneme2")
+      //  self.retrieveValues()
         print(ShowVersion)
     }
 
@@ -71,3 +74,43 @@ class LoginViewController: UIViewController {
 
 }
 
+// extension LoginViewController {
+//    func save(value:String){
+//
+//        if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
+//            let context = appDelegate.persistentContainer.viewContext
+//
+//            guard let entityDescription = NSEntityDescription.entity(forEntityName:"Test",in:context)else{return}
+//
+//            let newValue = NSManagedObject(entity:entityDescription,
+//                                             insertInto:context)
+//            newValue.setValue(value, forKey: "testValue")
+//            do{
+//                try context.save()
+//                print("Saved:\(value)")
+//            }catch{
+//                print("Saving Error")
+//            }
+//                }
+//    }
+    
+   
+//          func retrieveValues(){
+//              if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
+//                  let context = appDelegate.persistentContainer.viewContext
+//                 let fetchRequest=NSFetchRequest<Test>(entityName:"Test")
+//                  
+//                 do{
+//                     let results = try context.fetch(fetchRequest)
+//                     
+//                     for result in results{
+//                           if let testValue=result.testValue{
+//                             print(testValue)
+//                         }
+//                     }
+//                 }catch {
+//                     print("Could not retrieve")
+//                 }
+//              }
+//          }
+//}

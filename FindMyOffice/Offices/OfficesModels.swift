@@ -35,6 +35,7 @@ enum Offices {
                 var space: String?
                 var image: String?
                 var images: [ImageUrls]?
+                var id: String?
                 
             }
           

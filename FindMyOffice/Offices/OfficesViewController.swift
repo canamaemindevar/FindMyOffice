@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 protocol OfficesDisplayLogic: AnyObject {
     func displayOffice(viewModel:Offices.Fetch.ViewModel)
 }
 
-final class OfficesViewController: UIViewController {
+
+final class OfficesViewController: UIViewController{
+   
+    
     
     @IBOutlet weak var tableView: UITableView!
     var interactor: (OfficesBusinessLogic & GetFilteredData)?
-    var router: (OfficesRoutingLogic & OfficesDataPassing)?
+    var router: (OfficesRoutingLogic & OfficesDataPassing & GoToFavorites)?
     var viewModel: Offices.Fetch.ViewModel?
     var pickerView = UIPickerView()
     
@@ -35,6 +39,9 @@ final class OfficesViewController: UIViewController {
         super.init(coder: aDecoder)
         setup()
     }
+    @IBAction func goToFavBtn(_ sender: UIButton) {
+        router?.goToFav()
+    }
     
     override func viewDidLoad() {
         interactor?.fetchOffices(request: Offices.Fetch.Request())
@@ -45,6 +52,7 @@ final class OfficesViewController: UIViewController {
         setupOptions()
         filterTextField.inputView = pickerView
         createToolBarForPickerView()
+        
     }
     
     func createToolBarForPickerView(){
@@ -88,6 +96,7 @@ final class OfficesViewController: UIViewController {
         options.append(spaceOptions)
     }
     
+   
  
     
 }
@@ -120,6 +129,7 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.cornerRadius = 5
         cell.layer.borderColor = UIColor(named: "btnBorderColor")?.cgColor
         cell.configure(viewModel: model)
+        cell.delegate = self
         
 
         return cell
@@ -173,25 +183,41 @@ extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         
         
     }
+
     
-    
+}
+extension OfficesViewController: favoriteActions {
+    func favSelected(viewModel: Offices.Fetch.ViewModel.Office) {
+        
+        
+        if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
+            let context = appDelegate.persistentContainer.viewContext
+
+            let entityDescription = NSEntityDescription.insertNewObject(forEntityName: "OfficeModel", into: context)
+            
+            
+           // entityDescription.setValue(viewModel.images, forKey: "images")
+            entityDescription.setValue(viewModel.name, forKey: "name")
+            entityDescription.setValue(viewModel.rooms, forKey: "rooms")
+            entityDescription.setValue(viewModel.address, forKey: "adress")
+            entityDescription.setValue(viewModel.capacity, forKey: "capacity")
+            entityDescription.setValue(viewModel.image, forKey: "image")
+            entityDescription.setValue(viewModel.id, forKey: "id")
+            entityDescription.setValue(true, forKey: "fav")
+            
+            do{
+                try context.save()
+                print("Saved")
+            }catch{
+                print("Saving Error")
+            }
+
+    }
     
     
 }
+    
+    
 
-
-/*
- func toolbarSetup(){
-     let toolBar = UIToolbar()
-     toolBar.sizeToFit()
-     toolBar.isUserInteractionEnabled = true
-     let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closePickerView))
-     filterTextField.inputAccessoryView = toolBar
-     toolBar.setItems([doneButton], animated: true)
- 
- }
- @objc func closePickerView() {
-     view.endEditing(true)
-     print("eeee")
 }
- */
+

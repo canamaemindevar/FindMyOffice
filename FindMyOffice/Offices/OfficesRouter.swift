@@ -15,9 +15,12 @@ protocol OfficesRoutingLogic: AnyObject {
 protocol OfficesDataPassing: AnyObject {
     var dataStore: OfficesDataStore? { get }
 }
+protocol GoToFavorites: AnyObject{
+    func goToFav()
+}
 
 
-final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing {
+final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing, GoToFavorites {
     func routeToOfficeDetail(index: Int) {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -25,6 +28,12 @@ final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing {
         destinationVC.router?.dataStore?.officeElement = dataStore?.officeData?[index]
         
        self.viewController?.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    func goToFav(){
+        let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
+        let destinationVC: FavoritesViewController = storyboard.instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
+        
+        self.viewController?.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     

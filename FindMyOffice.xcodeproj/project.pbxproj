@@ -37,6 +37,14 @@
 		FA96B5762872FABC0025B979 /* FindMyOfficeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5752872FABC0025B979 /* FindMyOfficeTests.swift */; };
 		FA96B5802872FABC0025B979 /* FindMyOfficeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B57F2872FABC0025B979 /* FindMyOfficeUITests.swift */; };
 		FA96B5822872FABC0025B979 /* FindMyOfficeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96B5812872FABC0025B979 /* FindMyOfficeUITestsLaunchTests.swift */; };
+		FAC2F1BF28AA22CC00C18D64 /* FindMyOffice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1BD28AA22CC00C18D64 /* FindMyOffice.xcdatamodeld */; };
+		FAC2F1D628AA94EB00C18D64 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC2F1CF28AA94EB00C18D64 /* Favorites.storyboard */; };
+		FAC2F1D728AA94EB00C18D64 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1D028AA94EB00C18D64 /* FavoritesViewController.swift */; };
+		FAC2F1D828AA94EB00C18D64 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1D128AA94EB00C18D64 /* FavoritesPresenter.swift */; };
+		FAC2F1D928AA94EB00C18D64 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1D228AA94EB00C18D64 /* FavoritesInteractor.swift */; };
+		FAC2F1DA28AA94EB00C18D64 /* FavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1D328AA94EB00C18D64 /* FavoritesModels.swift */; };
+		FAC2F1DB28AA94EB00C18D64 /* FavoritesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1D428AA94EB00C18D64 /* FavoritesWorker.swift */; };
+		FAC2F1DC28AA94EB00C18D64 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1D528AA94EB00C18D64 /* FavoritesRouter.swift */; };
 		FAC34B6B28A44EE8004BBE64 /* fullScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC34B6928A44EE8004BBE64 /* fullScreenCell.swift */; };
 		FAC34B6C28A44EE8004BBE64 /* fullScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC34B6A28A44EE8004BBE64 /* fullScreenCell.xib */; };
 		FAD17F58289ECC42006FDD6F /* OfficeImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD17F56289ECC42006FDD6F /* OfficeImagesCell.swift */; };
@@ -104,6 +112,14 @@
 		FA96B58F287301920025B979 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		FA96B590287301C20025B979 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FindMyOffice.entitlements; sourceTree = "<group>"; };
+		FAC2F1BE28AA22CC00C18D64 /* FindMyOffice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FindMyOffice.xcdatamodel; sourceTree = "<group>"; };
+		FAC2F1CF28AA94EB00C18D64 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		FAC2F1D028AA94EB00C18D64 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		FAC2F1D128AA94EB00C18D64 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		FAC2F1D228AA94EB00C18D64 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		FAC2F1D328AA94EB00C18D64 /* FavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModels.swift; sourceTree = "<group>"; };
+		FAC2F1D428AA94EB00C18D64 /* FavoritesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesWorker.swift; sourceTree = "<group>"; };
+		FAC2F1D528AA94EB00C18D64 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		FAC34B6928A44EE8004BBE64 /* fullScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fullScreenCell.swift; sourceTree = "<group>"; };
 		FAC34B6A28A44EE8004BBE64 /* fullScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = fullScreenCell.xib; sourceTree = "<group>"; };
 		FAD17F56289ECC42006FDD6F /* OfficeImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeImagesCell.swift; sourceTree = "<group>"; };
@@ -240,6 +256,7 @@
 				FA28FAB1289BEDB8009B528F /* Offices */,
 				FA62C744289E944D00794892 /* OfficeDetail */,
 				FAE0C19728A1212300E93887 /* FullScreen */,
+				FAC2F1CE28AA93BC00C18D64 /* Favorites */,
 				FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */,
 				FA96B55E2872FABA0025B979 /* AppDelegate.swift */,
 				FA96B5602872FABA0025B979 /* SceneDelegate.swift */,
@@ -249,6 +266,7 @@
 				FA96B5692872FABB0025B979 /* LaunchScreen.storyboard */,
 				FA96B5672872FABB0025B979 /* Assets.xcassets */,
 				FA96B56C2872FABB0025B979 /* Info.plist */,
+				FAC2F1BD28AA22CC00C18D64 /* FindMyOffice.xcdatamodeld */,
 			);
 			path = FindMyOffice;
 			sourceTree = "<group>";
@@ -277,6 +295,20 @@
 				FA96B590287301C20025B979 /* Production.xcconfig */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		FAC2F1CE28AA93BC00C18D64 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				FAC2F1CF28AA94EB00C18D64 /* Favorites.storyboard */,
+				FAC2F1D028AA94EB00C18D64 /* FavoritesViewController.swift */,
+				FAC2F1D128AA94EB00C18D64 /* FavoritesPresenter.swift */,
+				FAC2F1D228AA94EB00C18D64 /* FavoritesInteractor.swift */,
+				FAC2F1D328AA94EB00C18D64 /* FavoritesModels.swift */,
+				FAC2F1D428AA94EB00C18D64 /* FavoritesWorker.swift */,
+				FAC2F1D528AA94EB00C18D64 /* FavoritesRouter.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		FAC34B6D28A4E26F004BBE64 /* FullScreenCell */ = {
@@ -417,6 +449,7 @@
 				FAC34B6C28A44EE8004BBE64 /* fullScreenCell.xib in Resources */,
 				FA62C74C289E948600794892 /* OfficeDetail.storyboard in Resources */,
 				FA96B56B2872FABB0025B979 /* LaunchScreen.storyboard in Resources */,
+				FAC2F1D628AA94EB00C18D64 /* Favorites.storyboard in Resources */,
 				FAD17F59289ECC42006FDD6F /* OfficeImagesCell.xib in Resources */,
 				FA96B5682872FABB0025B979 /* Assets.xcassets in Resources */,
 				FA62C73E289E724B00794892 /* OfficeListCell.xib in Resources */,
@@ -448,9 +481,12 @@
 			files = (
 				FAE0C19528A1156B00E93887 /* FullScreenWorker.swift in Sources */,
 				FA28FAAD289BEDA9009B528F /* OfficesInteractor.swift in Sources */,
+				FAC2F1D928AA94EB00C18D64 /* FavoritesInteractor.swift in Sources */,
 				FA28FA9F289BECAA009B528F /* NetworkManager.swift in Sources */,
 				FA96B5632872FABA0025B979 /* LoginViewController.swift in Sources */,
+				FAC2F1DB28AA94EB00C18D64 /* FavoritesWorker.swift in Sources */,
 				FAE0C19328A1156B00E93887 /* FullScreenInteractor.swift in Sources */,
+				FAC2F1BF28AA22CC00C18D64 /* FindMyOffice.xcdatamodeld in Sources */,
 				FA96B55F2872FABA0025B979 /* AppDelegate.swift in Sources */,
 				FAE0C19228A1156B00E93887 /* FullScreenPresenter.swift in Sources */,
 				FA62C750289E948600794892 /* OfficeDetailModels.swift in Sources */,
@@ -458,11 +494,13 @@
 				FA62C73D289E724B00794892 /* OfficeListCell.swift in Sources */,
 				FA96B5612872FABA0025B979 /* SceneDelegate.swift in Sources */,
 				FA28FAAB289BEDA9009B528F /* OfficesViewController.swift in Sources */,
+				FAC2F1DC28AA94EB00C18D64 /* FavoritesRouter.swift in Sources */,
 				FAE0C19428A1156B00E93887 /* FullScreenModels.swift in Sources */,
 				FAE0C19128A1156B00E93887 /* FullScreenViewController.swift in Sources */,
 				FAC34B6B28A44EE8004BBE64 /* fullScreenCell.swift in Sources */,
 				FA28FAAC289BEDA9009B528F /* OfficesPresenter.swift in Sources */,
 				FA62C751289E948600794892 /* OfficeDetailWorker.swift in Sources */,
+				FAC2F1D828AA94EB00C18D64 /* FavoritesPresenter.swift in Sources */,
 				FAEEE61D2890912000AA4E4F /* RegisterViewController.swift in Sources */,
 				FA62C74D289E948600794892 /* OfficeDetailViewController.swift in Sources */,
 				FA28FAA2289BECC8009B528F /* OfficeResponse.swift in Sources */,
@@ -473,6 +511,8 @@
 				FA62C74F289E948600794892 /* OfficeDetailInteractor.swift in Sources */,
 				FA28FAAF289BEDA9009B528F /* OfficesWorker.swift in Sources */,
 				FA28FAB0289BEDA9009B528F /* OfficesRouter.swift in Sources */,
+				FAC2F1DA28AA94EB00C18D64 /* FavoritesModels.swift in Sources */,
+				FAC2F1D728AA94EB00C18D64 /* FavoritesViewController.swift in Sources */,
 				FA62C752289E948600794892 /* OfficeDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1129,6 +1169,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FAC2F1BD28AA22CC00C18D64 /* FindMyOffice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAC2F1BE28AA22CC00C18D64 /* FindMyOffice.xcdatamodel */,
+			);
+			currentVersion = FAC2F1BE28AA22CC00C18D64 /* FindMyOffice.xcdatamodel */;
+			path = FindMyOffice.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA96B5532872FAB90025B979 /* Project object */;
 }

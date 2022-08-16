@@ -107,8 +107,16 @@
                                     <outlet property="delegate" destination="QjT-lM-Eiv" id="QLK-Id-V8U"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dz-7R-JU3">
+                                <rect key="frame" x="281" y="88" width="128" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Favorites"/>
+                                <connections>
+                                    <action selector="goToFavBtn:" destination="QjT-lM-Eiv" eventType="touchUpInside" id="ghi-2i-HMp"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filter" textAlignment="natural" minimumFontSize="17" id="gDY-gO-9zj">
-                                <rect key="frame" x="81" y="88" width="253" height="34"/>
+                                <rect key="frame" x="20" y="85" width="253" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -123,7 +131,11 @@
                             <constraint firstItem="vRp-o6-S5G" firstAttribute="leading" secondItem="yQI-am-iSA" secondAttribute="leading" id="A7n-H6-4Qp"/>
                             <constraint firstItem="yQI-am-iSA" firstAttribute="trailing" secondItem="vRp-o6-S5G" secondAttribute="trailing" id="K9d-ge-cAn"/>
                             <constraint firstItem="vRp-o6-S5G" firstAttribute="top" secondItem="yQI-am-iSA" secondAttribute="top" constant="30" id="Lpf-21-SfW"/>
+                            <constraint firstItem="yQI-am-iSA" firstAttribute="bottom" secondItem="7dz-7R-JU3" secondAttribute="bottom" constant="743" id="NS6-jz-nza"/>
                             <constraint firstItem="yQI-am-iSA" firstAttribute="bottom" secondItem="vRp-o6-S5G" secondAttribute="bottom" id="O2O-Ch-P5T"/>
+                            <constraint firstItem="7dz-7R-JU3" firstAttribute="top" secondItem="yQI-am-iSA" secondAttribute="top" id="R6g-Tl-ggD"/>
+                            <constraint firstItem="yQI-am-iSA" firstAttribute="trailing" secondItem="7dz-7R-JU3" secondAttribute="trailing" constant="5" id="SDG-WL-cxl"/>
+                            <constraint firstItem="7dz-7R-JU3" firstAttribute="leading" secondItem="gDY-gO-9zj" secondAttribute="trailing" constant="8" symbolic="YES" id="n0z-89-ZZl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jiu-NO-ThB">
