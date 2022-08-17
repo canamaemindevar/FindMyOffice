@@ -125,6 +125,9 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension FavoritesViewController{
     func retrieveValues(){
+        
+                // names.removeAll(keepingCapacity: false)
+        
                   if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
                       let context = appDelegate.persistentContainer.viewContext
                       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")

@@ -12,10 +12,14 @@ import SDWebImage
 protocol favoriteActions{
     func favSelected(viewModel: Offices.Fetch.ViewModel.Office)
 }
+protocol deleteFavAction{
+    func favDeleted(viewModel: Offices.Fetch.ViewModel.Office)
+}
 
 class OfficeListCell: UITableViewCell {
 
-    var delegate: favoriteActions?
+    var favoriteActionsdelegate: favoriteActions?
+    var favDeletedDelegate: deleteFavAction?
 
     var ViewModel: Offices.Fetch.ViewModel.Office?
     
@@ -25,18 +29,36 @@ class OfficeListCell: UITableViewCell {
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var officeView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    var favedBtn = false
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         favButton.imageView?.contentMode = .scaleAspectFit
-        
+        favButton.tintColor = .black
 
     }
     
     
     @IBAction func favButton(_ sender: UIButton) {
-        delegate?.favSelected(viewModel: ViewModel!)
-        print("bastın")
+        if favedBtn  == false {
+            favedBtn = true
+            favButton.tintColor = .yellow
+            favButton.setImage(UIImage(named: "custom.star.circle"), for: .highlighted)
+            //favButton.foregroundColor
+            favoriteActionsdelegate?.favSelected(viewModel: ViewModel!)
+            print("bastın")
+        } else {
+            favButton.tintColor = .black
+            favButton.setImage(UIImage(named: "custom.star.circle"), for: .normal)
+            favedBtn = false
+            favDeletedDelegate?.favDeleted(viewModel: ViewModel!)
+            print("sildim")
+        }
+       
+        /*
+         let imageView = UIImageView(image: image)
+         imageView.tintColor = .systemPink
+         */
         
         
     }

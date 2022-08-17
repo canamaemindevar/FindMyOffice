@@ -24,6 +24,7 @@ final class OfficesViewController: UIViewController{
     var pickerView = UIPickerView()
     
     var options = [Options]()
+    var faved = false
     
     @IBOutlet weak var filterTextField: UITextField!
     
@@ -129,7 +130,8 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.cornerRadius = 5
         cell.layer.borderColor = UIColor(named: "btnBorderColor")?.cgColor
         cell.configure(viewModel: model)
-        cell.delegate = self
+        cell.favoriteActionsdelegate = self
+        cell.favDeletedDelegate = self
         
 
         return cell
@@ -186,10 +188,11 @@ extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 
     
 }
-extension OfficesViewController: favoriteActions {
+extension OfficesViewController: favoriteActions, deleteFavAction {
+   
+    
     func favSelected(viewModel: Offices.Fetch.ViewModel.Office) {
-        
-        
+
         if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
             let context = appDelegate.persistentContainer.viewContext
 
@@ -211,12 +214,52 @@ extension OfficesViewController: favoriteActions {
             }catch{
                 print("Saving Error")
             }
-
     }
-    
-    
+
 }
     
+    
+    func favDeleted(viewModel: Offices.Fetch.ViewModel.Office) {
+        if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
+            fetchRequest.returnsObjectsAsFaults = false
+            
+           // let idString = id[indexPath.row]
+            fetchRequest.predicate = NSPredicate(format: "id = %@", "\(viewModel.id ?? "")")
+            
+            do{
+                let results = try context.fetch(fetchRequest)
+                
+                if results.count>=0{
+                    for result in results as! [NSManagedObject] {
+                        if let id = result.value(forKey: "id") as? String {
+                            if    id == viewModel.id {
+                                context.delete(result)
+                                
+                                do {
+                                    try context.save()
+                                    print("yaptııım")
+                                } catch  {
+                                    print("error saving")
+                                }
+                            }
+                        }
+                        
+                       
+                        self.tableView.reloadData()
+                      
+                 
+                    }
+                }
+            } catch {
+                print("error deleting")
+            }
+            
+        }
+        
+    }
     
 
 }
