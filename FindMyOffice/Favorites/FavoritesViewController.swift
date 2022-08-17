@@ -80,10 +80,49 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
         }
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
+                let context = appDelegate.persistentContainer.viewContext
+                
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
+                fetchRequest.returnsObjectsAsFaults = false
+                
+                let idString = id[indexPath.row]
+                fetchRequest.predicate = NSPredicate(format: "id = %@", idString)
+                
+                do{
+                    let results = try context.fetch(fetchRequest)
+                    
+                    if results.count>0{
+                        for result in results as! [NSManagedObject] {
+                          
+                            context.delete(result)
+                            id.remove(at: indexPath.row)
+                            names.remove(at: indexPath.row)
+                            self.tableView.reloadData()
+                            
+                            do {
+                                try context.save()
+                            } catch  {
+                                print("error saving")
+                            }
+                     
+                        }
+                    }
+                } catch {
+                    print("error deleting")
+                }
+                
+            }
+        }
+    }
     
     
 }
+
+
+
 extension FavoritesViewController{
     func retrieveValues(){
                   if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
@@ -125,12 +164,4 @@ extension FavoritesViewController{
                   }
               }
 }
-/*
- let storyboard = UIStoryboard(name: "FullScreen", bundle: nil)
- let destinationVC: FullScreenViewController = storyboard.instantiateViewController(withIdentifier: "FullScreen") as! FullScreenViewController
- destinationVC.router?.dataStore?.officeElement = dataStore?.officeElement
- 
- destinationVC.router?.dataStore?.selectedImageIndex = index
- destinationVC.delegate = viewController
- self.viewController?.navigationController?.pushViewController(destinationVC, animated: true)
- */
+
