@@ -29,7 +29,8 @@ class OfficeListCell: UITableViewCell {
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var officeView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    var favedBtn = false
+    
+    var favedBtn = true
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -40,8 +41,8 @@ class OfficeListCell: UITableViewCell {
     
     
     @IBAction func favButton(_ sender: UIButton) {
-        if favedBtn  == false {
-            favedBtn = true
+        if favedBtn  == true {
+            favedBtn = false
             favButton.tintColor = .yellow
             favButton.setImage(UIImage(named: "custom.star.circle"), for: .highlighted)
             //favButton.foregroundColor
@@ -50,7 +51,7 @@ class OfficeListCell: UITableViewCell {
         } else {
             favButton.tintColor = .black
             favButton.setImage(UIImage(named: "custom.star.circle"), for: .normal)
-            favedBtn = false
+            favedBtn = true
             favDeletedDelegate?.favDeleted(viewModel: ViewModel!)
             print("sildim")
         }

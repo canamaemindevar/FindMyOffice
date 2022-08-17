@@ -22,6 +22,7 @@ final class OfficesViewController: UIViewController{
     var router: (OfficesRoutingLogic & OfficesDataPassing & GoToFavorites)?
     var viewModel: Offices.Fetch.ViewModel?
     var pickerView = UIPickerView()
+    var idArray = [String]()
     
     var options = [Options]()
     var faved = false
@@ -53,6 +54,7 @@ final class OfficesViewController: UIViewController{
         setupOptions()
         filterTextField.inputView = pickerView
         createToolBarForPickerView()
+        retiveData()
         
     }
     
@@ -133,6 +135,15 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.favoriteActionsdelegate = self
         cell.favDeletedDelegate = self
         
+        cell.favedBtn = true
+        
+        for i in idArray {
+            if i == model.id {
+                cell.favButton.tintColor = .yellow
+                cell.favedBtn = false
+            }
+        }
+        
 
         return cell
     }
@@ -208,6 +219,7 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
             entityDescription.setValue(viewModel.id, forKey: "id")
             entityDescription.setValue(true, forKey: "fav")
             
+            
             do{
                 try context.save()
                 print("Saved")
@@ -226,7 +238,7 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
             fetchRequest.returnsObjectsAsFaults = false
             
-           // let idString = id[indexPath.row]
+           
             fetchRequest.predicate = NSPredicate(format: "id = %@", "\(viewModel.id ?? "")")
             
             do{
@@ -240,9 +252,9 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
                                 
                                 do {
                                     try context.save()
-                                    print("yaptııım")
+                                    
                                 } catch  {
-                                    print("error saving")
+                                   
                                 }
                             }
                         }
@@ -261,6 +273,28 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
         
     }
     
-
+    func retiveData(){
+        if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                for result in results as! [NSManagedObject] {
+                    if let idFromCore = result.value(forKey: "id") as? String {
+                        idArray.append(idFromCore)
+                    }
+                }
+            } catch  {
+                print("Retive Data Error")
+            }
+            
+            
+        }
+        
+        
+    }
 }
 
