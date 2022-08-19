@@ -13,10 +13,8 @@ protocol FavoritesDisplayLogic: AnyObject {
     
 }
 
-final class FavoritesViewController: UIViewController {
-    
-    
-    
+final class FavoritesViewController: UIViewController{
+  
     @IBOutlet weak var tableView: UITableView!
     
     var interactor: FavoritesBusinessLogic?
@@ -74,12 +72,23 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as? OfficeListCell else { return UITableViewCell()}
+    
+       
+        
         cell.nameLabel.text = names[indexPath.row]
         cell.roomsLabel.text = rooms[indexPath.row]
         cell.officeView.sd_setImage(with: URL(string: image[indexPath.row] ))
+        cell.favButton.tintColor = .yellow
+       
+       
         
+        
+        
+        
+            
         return cell
         }
+   
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             if let appDelegate = UIApplication.shared.delegate as?AppDelegate {

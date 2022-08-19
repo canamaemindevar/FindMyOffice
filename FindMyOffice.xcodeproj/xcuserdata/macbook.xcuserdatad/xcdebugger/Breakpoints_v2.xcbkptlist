@@ -680,8 +680,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "displayOffice(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -690,6 +690,38 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F993F5F6-59A5-47E4-BF5F-7848F1BD279E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyOffice/Offices/OfficesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "displayOffice(viewModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBDC84FE-65D1-490B-B63A-DA9E59949FA6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyOffice/Offices/OfficesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "displayOffice(viewModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5F361EC-DD26-4A94-A342-A7D047A772E5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -705,38 +737,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DBDC84FE-65D1-490B-B63A-DA9E59949FA6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FindMyOffice/Offices/OfficesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "displayOffice(viewModel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F5F361EC-DD26-4A94-A342-A7D047A772E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FindMyOffice/Offices/OfficesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "displayOffice(viewModel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1AD50880-29C8-48A0-A22F-4F956A11355C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -744,8 +744,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -760,8 +760,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -776,8 +776,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -792,8 +792,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -808,8 +808,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -824,8 +824,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -840,8 +840,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -856,8 +856,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -872,24 +872,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "favDeleted(viewModel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C317C3D0-2253-4979-98D8-BFB65A8B97AF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FindMyOffice/Offices/OfficesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -904,8 +888,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -920,8 +904,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -936,8 +920,8 @@
             filePath = "FindMyOffice/Offices/OfficesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "favDeleted(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>

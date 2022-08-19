@@ -12,11 +12,8 @@ protocol OfficesDisplayLogic: AnyObject {
     func displayOffice(viewModel:Offices.Fetch.ViewModel)
 }
 
-
 final class OfficesViewController: UIViewController{
-   
-    
-    
+
     @IBOutlet weak var tableView: UITableView!
     var interactor: (OfficesBusinessLogic & GetFilteredData)?
     var router: (OfficesRoutingLogic & OfficesDataPassing & GoToFavorites)?
@@ -57,6 +54,10 @@ final class OfficesViewController: UIViewController{
         retiveData()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     func createToolBarForPickerView(){
         let toolBar = UIToolbar()
@@ -73,8 +74,6 @@ final class OfficesViewController: UIViewController{
     @objc func dissmisButton() {
         view.endEditing(true)
     }
-    
-    
     // MARK: Setup
     
     private func setup() {
@@ -98,10 +97,6 @@ final class OfficesViewController: UIViewController{
         options.append(roomsOptions)
         options.append(spaceOptions)
     }
-    
-   
- 
-    
 }
 
 extension OfficesViewController: OfficesDisplayLogic {
@@ -113,14 +108,10 @@ extension OfficesViewController: OfficesDisplayLogic {
         
         print(viewModel.offices)
     }
-    
-    
 }
 // MARK: tableView
 extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as? OfficeListCell else { return UITableViewCell()}
@@ -143,8 +134,6 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.favedBtn = false
             }
         }
-        
-
         return cell
     }
     
@@ -155,12 +144,9 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router?.routeToOfficeDetail(index: indexPath.row)
+        router?.goToFav()
     }
- 
-    
 }
-
-
 
 extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -192,24 +178,18 @@ extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         let selectItem = options[selectedData].values[row]
         filterTextField.text = selectItem
         interactor?.filterRequest(request: selectItem ?? "")
-        
-        
-        
     }
 
     
 }
 extension OfficesViewController: favoriteActions, deleteFavAction {
    
-    
     func favSelected(viewModel: Offices.Fetch.ViewModel.Office) {
 
         if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
             let context = appDelegate.persistentContainer.viewContext
 
             let entityDescription = NSEntityDescription.insertNewObject(forEntityName: "OfficeModel", into: context)
-            
-            
            // entityDescription.setValue(viewModel.images, forKey: "images")
             entityDescription.setValue(viewModel.name, forKey: "name")
             entityDescription.setValue(viewModel.rooms, forKey: "rooms")
@@ -218,8 +198,6 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
             entityDescription.setValue(viewModel.image, forKey: "image")
             entityDescription.setValue(viewModel.id, forKey: "id")
             entityDescription.setValue(true, forKey: "fav")
-            
-            
             do{
                 try context.save()
                 print("Saved")
@@ -229,8 +207,6 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
     }
 
 }
-    
-    
     func favDeleted(viewModel: Offices.Fetch.ViewModel.Office) {
         if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
             let context = appDelegate.persistentContainer.viewContext
@@ -249,29 +225,21 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
                         if let id = result.value(forKey: "id") as? String {
                             if    id == viewModel.id {
                                 context.delete(result)
-                                
                                 do {
                                     try context.save()
                                     
                                 } catch  {
-                                   
                                 }
                             }
                         }
-                        
-                       
                         self.tableView.reloadData()
-                      
-                 
                     }
                 }
             } catch {
                 print("error deleting")
             }
-            
         }
-        
-    }
+}
     
     func retiveData(){
         if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
@@ -290,11 +258,8 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
             } catch  {
                 print("Retive Data Error")
             }
-            
-            
+ 
         }
-        
-        
+
     }
 }
-

@@ -12,10 +12,16 @@ protocol FavoritesBusinessLogic: AnyObject {
 }
 
 protocol FavoritesDataStore: AnyObject {
-    
+   
 }
 
 final class FavoritesInteractor: FavoritesBusinessLogic, FavoritesDataStore {
+    
+    
+   
+    
+    
+    
     
     var presenter: FavoritesPresentationLogic?
     var worker: FavoritesWorkingLogic = FavoritesWorker()
