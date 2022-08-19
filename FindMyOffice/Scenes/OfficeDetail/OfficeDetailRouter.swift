@@ -10,13 +10,22 @@ import UIKit
 
 protocol OfficeDetailRoutingLogic: AnyObject {
     func routeToFullScreen(index: Int)
+    func routeToWebSite()
 }
+
 
 protocol OfficeDetailDataPassing: AnyObject {
     var dataStore: OfficeDetailDataStore? { get }
 }
 
 final class OfficeDetailRouter: OfficeDetailRoutingLogic, OfficeDetailDataPassing {
+    func routeToWebSite() {
+        let storyboard = UIStoryboard(name: "Website", bundle: nil)
+        let destinationVC: WebsiteViewController = storyboard.instantiateViewController(withIdentifier: "WebsiteViewController") as! WebsiteViewController
+       
+        self.viewController?.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
     func routeToFullScreen(index: Int) {
         
 

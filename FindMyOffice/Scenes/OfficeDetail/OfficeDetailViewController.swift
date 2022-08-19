@@ -41,6 +41,10 @@ final class OfficeDetailViewController: UIViewController {
         setup()
     }
     
+    @IBAction func showWebsite(_ sender: UIButton) {
+        router?.routeToWebSite()
+    }
+    
     // MARK: Setup
     
     private func setup() {

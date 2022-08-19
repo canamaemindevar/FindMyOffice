@@ -266,12 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				FA28FA9B289BEC7E009B528F /* Network */,
-				FA62C736289E710D00794892 /* Cells */,
-				FA28FAB1289BEDB8009B528F /* Offices */,
-				FAE0C19728A1212300E93887 /* FullScreen */,
-				FA62C744289E944D00794892 /* OfficeDetail */,
-				FAC2F1CE28AA93BC00C18D64 /* Favorites */,
-				FAC2F1E228AF7DB600C18D64 /* WebSite */,
+				FAC2F1F128AF98CD00C18D64 /* Scenes */,
 				FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */,
 				FA96B55E2872FABA0025B979 /* AppDelegate.swift */,
 				FA96B5602872FABA0025B979 /* SceneDelegate.swift */,
@@ -338,6 +333,19 @@
 				FAC2F1E928AF7DF200C18D64 /* WebsiteRouter.swift */,
 			);
 			path = WebSite;
+			sourceTree = "<group>";
+		};
+		FAC2F1F128AF98CD00C18D64 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FA62C736289E710D00794892 /* Cells */,
+				FA28FAB1289BEDB8009B528F /* Offices */,
+				FAE0C19728A1212300E93887 /* FullScreen */,
+				FA62C744289E944D00794892 /* OfficeDetail */,
+				FAC2F1CE28AA93BC00C18D64 /* Favorites */,
+				FAC2F1E228AF7DB600C18D64 /* WebSite */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		FAC34B6D28A4E26F004BBE64 /* FullScreenCell */ = {

@@ -11,7 +11,7 @@ protocol WebsiteRoutingLogic: AnyObject {
     
 }
 
-protocol WebsiteDataPassing: class {
+protocol WebsiteDataPassing: AnyObject {
     var dataStore: WebsiteDataStore? { get }
 }
 
