@@ -144,7 +144,7 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router?.routeToOfficeDetail(index: indexPath.row)
-        router?.goToFav()
+      
     }
 }
 

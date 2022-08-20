@@ -52,6 +52,15 @@
 		FAC2F1EE28AF7DF200C18D64 /* WebsiteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1E728AF7DF200C18D64 /* WebsiteModels.swift */; };
 		FAC2F1EF28AF7DF200C18D64 /* WebsiteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1E828AF7DF200C18D64 /* WebsiteWorker.swift */; };
 		FAC2F1F028AF7DF200C18D64 /* WebsiteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1E928AF7DF200C18D64 /* WebsiteRouter.swift */; };
+		FAC2F1F728B1019300C18D64 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1F528B1019300C18D64 /* PageViewController.swift */; };
+		FAC2F1F828B1019300C18D64 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC2F1F628B1019300C18D64 /* PageViewController.xib */; };
+		FAC2F20128B1023F00C18D64 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC2F1FA28B1023F00C18D64 /* MapView.storyboard */; };
+		FAC2F20228B1023F00C18D64 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1FB28B1023F00C18D64 /* MapViewViewController.swift */; };
+		FAC2F20328B1023F00C18D64 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1FC28B1023F00C18D64 /* MapViewPresenter.swift */; };
+		FAC2F20428B1023F00C18D64 /* MapViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1FD28B1023F00C18D64 /* MapViewInteractor.swift */; };
+		FAC2F20528B1023F00C18D64 /* MapViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1FE28B1023F00C18D64 /* MapViewModels.swift */; };
+		FAC2F20628B1023F00C18D64 /* MapViewWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F1FF28B1023F00C18D64 /* MapViewWorker.swift */; };
+		FAC2F20728B1023F00C18D64 /* MapViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F20028B1023F00C18D64 /* MapViewRouter.swift */; };
 		FAC34B6B28A44EE8004BBE64 /* fullScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC34B6928A44EE8004BBE64 /* fullScreenCell.swift */; };
 		FAC34B6C28A44EE8004BBE64 /* fullScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC34B6A28A44EE8004BBE64 /* fullScreenCell.xib */; };
 		FAD17F58289ECC42006FDD6F /* OfficeImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD17F56289ECC42006FDD6F /* OfficeImagesCell.swift */; };
@@ -134,6 +143,15 @@
 		FAC2F1E728AF7DF200C18D64 /* WebsiteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteModels.swift; sourceTree = "<group>"; };
 		FAC2F1E828AF7DF200C18D64 /* WebsiteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteWorker.swift; sourceTree = "<group>"; };
 		FAC2F1E928AF7DF200C18D64 /* WebsiteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteRouter.swift; sourceTree = "<group>"; };
+		FAC2F1F528B1019300C18D64 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		FAC2F1F628B1019300C18D64 /* PageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
+		FAC2F1FA28B1023F00C18D64 /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
+		FAC2F1FB28B1023F00C18D64 /* MapViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
+		FAC2F1FC28B1023F00C18D64 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		FAC2F1FD28B1023F00C18D64 /* MapViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewInteractor.swift; sourceTree = "<group>"; };
+		FAC2F1FE28B1023F00C18D64 /* MapViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModels.swift; sourceTree = "<group>"; };
+		FAC2F1FF28B1023F00C18D64 /* MapViewWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWorker.swift; sourceTree = "<group>"; };
+		FAC2F20028B1023F00C18D64 /* MapViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRouter.swift; sourceTree = "<group>"; };
 		FAC34B6928A44EE8004BBE64 /* fullScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fullScreenCell.swift; sourceTree = "<group>"; };
 		FAC34B6A28A44EE8004BBE64 /* fullScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = fullScreenCell.xib; sourceTree = "<group>"; };
 		FAD17F56289ECC42006FDD6F /* OfficeImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeImagesCell.swift; sourceTree = "<group>"; };
@@ -338,14 +356,39 @@
 		FAC2F1F128AF98CD00C18D64 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FAC2F1F228B1011A00C18D64 /* PageController */,
 				FA62C736289E710D00794892 /* Cells */,
 				FA28FAB1289BEDB8009B528F /* Offices */,
 				FAE0C19728A1212300E93887 /* FullScreen */,
 				FA62C744289E944D00794892 /* OfficeDetail */,
 				FAC2F1CE28AA93BC00C18D64 /* Favorites */,
 				FAC2F1E228AF7DB600C18D64 /* WebSite */,
+				FAC2F1F928B101F300C18D64 /* MapView */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FAC2F1F228B1011A00C18D64 /* PageController */ = {
+			isa = PBXGroup;
+			children = (
+				FAC2F1F528B1019300C18D64 /* PageViewController.swift */,
+				FAC2F1F628B1019300C18D64 /* PageViewController.xib */,
+			);
+			path = PageController;
+			sourceTree = "<group>";
+		};
+		FAC2F1F928B101F300C18D64 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				FAC2F1FA28B1023F00C18D64 /* MapView.storyboard */,
+				FAC2F1FB28B1023F00C18D64 /* MapViewViewController.swift */,
+				FAC2F1FC28B1023F00C18D64 /* MapViewPresenter.swift */,
+				FAC2F1FD28B1023F00C18D64 /* MapViewInteractor.swift */,
+				FAC2F1FE28B1023F00C18D64 /* MapViewModels.swift */,
+				FAC2F1FF28B1023F00C18D64 /* MapViewWorker.swift */,
+				FAC2F20028B1023F00C18D64 /* MapViewRouter.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 		FAC34B6D28A4E26F004BBE64 /* FullScreenCell */ = {
@@ -485,11 +528,13 @@
 				FA28FAAA289BEDA9009B528F /* Offices.storyboard in Resources */,
 				FAC34B6C28A44EE8004BBE64 /* fullScreenCell.xib in Resources */,
 				FA62C74C289E948600794892 /* OfficeDetail.storyboard in Resources */,
+				FAC2F1F828B1019300C18D64 /* PageViewController.xib in Resources */,
 				FA96B56B2872FABB0025B979 /* LaunchScreen.storyboard in Resources */,
 				FAC2F1EA28AF7DF200C18D64 /* Website.storyboard in Resources */,
 				FAC2F1D628AA94EB00C18D64 /* Favorites.storyboard in Resources */,
 				FAD17F59289ECC42006FDD6F /* OfficeImagesCell.xib in Resources */,
 				FA96B5682872FABB0025B979 /* Assets.xcassets in Resources */,
+				FAC2F20128B1023F00C18D64 /* MapView.storyboard in Resources */,
 				FA62C73E289E724B00794892 /* OfficeListCell.xib in Resources */,
 				FA96B5662872FABA0025B979 /* Main.storyboard in Resources */,
 				FAE0C19028A1156B00E93887 /* FullScreen.storyboard in Resources */,
@@ -532,25 +577,32 @@
 				FAE0C19228A1156B00E93887 /* FullScreenPresenter.swift in Sources */,
 				FA62C750289E948600794892 /* OfficeDetailModels.swift in Sources */,
 				FA28FAAE289BEDA9009B528F /* OfficesModels.swift in Sources */,
+				FAC2F1F728B1019300C18D64 /* PageViewController.swift in Sources */,
 				FA62C73D289E724B00794892 /* OfficeListCell.swift in Sources */,
 				FA96B5612872FABA0025B979 /* SceneDelegate.swift in Sources */,
 				FA28FAAB289BEDA9009B528F /* OfficesViewController.swift in Sources */,
+				FAC2F20228B1023F00C18D64 /* MapViewViewController.swift in Sources */,
 				FAC2F1DC28AA94EB00C18D64 /* FavoritesRouter.swift in Sources */,
 				FAE0C19428A1156B00E93887 /* FullScreenModels.swift in Sources */,
+				FAC2F20328B1023F00C18D64 /* MapViewPresenter.swift in Sources */,
 				FAE0C19128A1156B00E93887 /* FullScreenViewController.swift in Sources */,
 				FAC34B6B28A44EE8004BBE64 /* fullScreenCell.swift in Sources */,
 				FA28FAAC289BEDA9009B528F /* OfficesPresenter.swift in Sources */,
 				FA62C751289E948600794892 /* OfficeDetailWorker.swift in Sources */,
+				FAC2F20528B1023F00C18D64 /* MapViewModels.swift in Sources */,
 				FAC2F1D828AA94EB00C18D64 /* FavoritesPresenter.swift in Sources */,
 				FAEEE61D2890912000AA4E4F /* RegisterViewController.swift in Sources */,
 				FAC2F1EC28AF7DF200C18D64 /* WebsitePresenter.swift in Sources */,
 				FAC2F1F028AF7DF200C18D64 /* WebsiteRouter.swift in Sources */,
+				FAC2F20428B1023F00C18D64 /* MapViewInteractor.swift in Sources */,
+				FAC2F20628B1023F00C18D64 /* MapViewWorker.swift in Sources */,
 				FA62C74D289E948600794892 /* OfficeDetailViewController.swift in Sources */,
 				FA28FAA2289BECC8009B528F /* OfficeResponse.swift in Sources */,
 				FAD17F58289ECC42006FDD6F /* OfficeImagesCell.swift in Sources */,
 				FA28FA9D289BEC8B009B528F /* API.swift in Sources */,
 				FAE0C19628A1156B00E93887 /* FullScreenRouter.swift in Sources */,
 				FAC2F1EE28AF7DF200C18D64 /* WebsiteModels.swift in Sources */,
+				FAC2F20728B1023F00C18D64 /* MapViewRouter.swift in Sources */,
 				FA62C74E289E948600794892 /* OfficeDetailPresenter.swift in Sources */,
 				FA62C74F289E948600794892 /* OfficeDetailInteractor.swift in Sources */,
 				FA28FAAF289BEDA9009B528F /* OfficesWorker.swift in Sources */,

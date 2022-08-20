@@ -62,5 +62,7 @@ class RegisterViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
     }
 
-
+    @IBAction func btnPressed(_ sender: UIButton) {
+    }
+    
 }

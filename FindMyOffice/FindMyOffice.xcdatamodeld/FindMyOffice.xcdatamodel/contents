@@ -9,11 +9,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rooms" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Test" representedClassName="Test" syncable="YES" codeGenerationType="class">
-        <attribute name="testValue" optional="YES" attributeType="String"/>
-    </entity>
     <elements>
-        <element name="Test" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="OfficeModel" positionX="-54" positionY="0" width="128" height="134"/>
     </elements>
 </model>

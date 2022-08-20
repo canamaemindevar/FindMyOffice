@@ -23,7 +23,7 @@ protocol GoToFavorites: AnyObject{
 final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing, GoToFavorites {
     func routeToOfficeDetail(index: Int) {
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "OfficeDetail", bundle: nil)
         let destinationVC: OfficeDetailViewController = storyboard.instantiateViewController(withIdentifier: "OfficeDetail") as! OfficeDetailViewController
         destinationVC.router?.dataStore?.officeElement = dataStore?.officeData?[index]
         

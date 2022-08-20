@@ -1,32 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxe-uw-h5I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pXb-VP-Opy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="D3m-6j-bBI">
+        <!--Offices View Controller-->
+        <scene sceneID="xIG-0I-lNw">
             <objects>
-                <viewController id="nxe-uw-h5I" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="chM-je-gA4">
+                <viewController storyboardIdentifier="OfficesViewController" modalPresentationStyle="fullScreen" id="pXb-VP-Opy" customClass="OfficesViewController" customModule="FindMyOffice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DXg-jn-REZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="acR-sl-ate"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="x4c-rV-Muf">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" name="background"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pXb-VP-Opy" id="yxn-cV-8Kv"/>
+                                    <outlet property="delegate" destination="pXb-VP-Opy" id="bac-Gk-KKl"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf1-fy-gFu">
+                                <rect key="frame" x="331.5" y="54" width="82.5" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="YYv-6A-KFE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Favorites"/>
+                                <connections>
+                                    <action selector="goToFavBtn:" destination="pXb-VP-Opy" eventType="touchUpInside" id="pgP-CD-uT5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahO-y1-D6U">
+                                <rect key="frame" x="0.0" y="54" width="331.5" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9v7-oq-KyF"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="9v7-oq-KyF" firstAttribute="bottom" secondItem="x4c-rV-Muf" secondAttribute="bottom" id="4zr-VE-IhB"/>
+                            <constraint firstItem="yf1-fy-gFu" firstAttribute="leading" secondItem="ahO-y1-D6U" secondAttribute="trailing" id="5ie-Qn-1ai"/>
+                            <constraint firstItem="yf1-fy-gFu" firstAttribute="trailing" secondItem="9v7-oq-KyF" secondAttribute="trailing" id="9bV-jx-khh"/>
+                            <constraint firstItem="x4c-rV-Muf" firstAttribute="leading" secondItem="9v7-oq-KyF" secondAttribute="leading" id="CzI-aM-jYd"/>
+                            <constraint firstItem="x4c-rV-Muf" firstAttribute="top" secondItem="9v7-oq-KyF" secondAttribute="top" constant="50" id="G6n-ny-W3V"/>
+                            <constraint firstItem="ahO-y1-D6U" firstAttribute="top" secondItem="9v7-oq-KyF" secondAttribute="top" constant="10" id="RWM-PT-qba"/>
+                            <constraint firstItem="yf1-fy-gFu" firstAttribute="top" secondItem="9v7-oq-KyF" secondAttribute="top" constant="10" id="Xpp-kp-Rzv"/>
+                            <constraint firstItem="9v7-oq-KyF" firstAttribute="trailing" secondItem="x4c-rV-Muf" secondAttribute="trailing" id="gcs-Wc-MJ3"/>
+                            <constraint firstItem="ahO-y1-D6U" firstAttribute="leading" secondItem="9v7-oq-KyF" secondAttribute="leading" id="kzI-J9-afW"/>
+                            <constraint firstItem="x4c-rV-Muf" firstAttribute="top" secondItem="ahO-y1-D6U" secondAttribute="bottom" id="zYR-G4-xHH"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1gF-kK-gzm">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="filterTextField" destination="ahO-y1-D6U" id="2XV-gX-NaN"/>
+                        <outlet property="tableView" destination="x4c-rV-Muf" id="olB-sM-UBY"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cZo-gs-e4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ItQ-YO-KBK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="107" y="28"/>
+            <point key="canvasLocation" x="463.768115942029" y="-101.11607142857143"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="background">
+            <color red="0.97600001096725464" green="0.85500001907348633" blue="0.3919999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
