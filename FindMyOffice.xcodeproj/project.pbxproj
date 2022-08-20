@@ -356,8 +356,8 @@
 		FAC2F1F128AF98CD00C18D64 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FAC2F1F228B1011A00C18D64 /* PageController */,
 				FA62C736289E710D00794892 /* Cells */,
+				FAC2F1F228B1011A00C18D64 /* PageController */,
 				FA28FAB1289BEDB8009B528F /* Offices */,
 				FAE0C19728A1212300E93887 /* FullScreen */,
 				FA62C744289E944D00794892 /* OfficeDetail */,

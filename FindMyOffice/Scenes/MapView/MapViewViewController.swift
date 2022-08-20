@@ -30,6 +30,11 @@ final class MapViewViewController: UIViewController {
         setup()
     }
     
+    override func viewDidLoad() {
+        mapView.delegate = self
+        mapView.addAnnotation(Annotation(coordinate: .init(latitude: 40, longitude: 30), title: "Home"))
+    }
+    
     // MARK: Setup
     
     private func setup() {
@@ -44,8 +49,42 @@ final class MapViewViewController: UIViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
+    
+    
 }
 
 extension MapViewViewController: MapViewDisplayLogic {
     
+}
+
+
+extension MapViewViewController:MKMapViewDelegate{
+    
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+        print("mapViewWillStartLoadingMap")
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        print("mapViewDidFinishLoadingMap")
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let annotation = view.annotation as? Annotation
+        print("didSelect", annotation?.title ?? "")
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        print("didDeselect")
+    }
+    
+    
+    class Annotation: NSObject, MKAnnotation {
+            var coordinate: CLLocationCoordinate2D
+            var title: String?
+            
+            init(coordinate: CLLocationCoordinate2D, title: String?){
+                self.coordinate = coordinate
+                self.title = title
+            }
+    }
 }
