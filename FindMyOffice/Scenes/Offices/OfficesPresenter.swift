@@ -24,6 +24,7 @@ final class OfficesPresenter: OfficesPresentationLogic {
             }
             
             viewController?.displayOffice(viewModel: Offices.Fetch.ViewModel(offices: officePresent))
+        
     }
     
     

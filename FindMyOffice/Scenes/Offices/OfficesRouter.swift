@@ -18,9 +18,13 @@ protocol OfficesDataPassing: AnyObject {
 protocol GoToFavorites: AnyObject{
     func goToFav()
 }
+protocol GoToMapView: AnyObject{
+    func routeToMapView()
+}
 
 
-final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing, GoToFavorites {
+final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing, GoToFavorites,GoToMapView {
+ //   var newArray:[OfficeResponseElement] = []
     func routeToOfficeDetail(index: Int) {
 
         let storyboard = UIStoryboard(name: "OfficeDetail", bundle: nil)
@@ -35,6 +39,19 @@ final class OfficesRouter: OfficesRoutingLogic, OfficesDataPassing, GoToFavorite
         
         self.viewController?.navigationController?.pushViewController(destinationVC, animated: true)
     }
+    func routeToMapView(){
+        let storyboard = UIStoryboard(name: "MapView", bundle: nil)
+        let destinationVC: MapViewViewController = storyboard.instantiateViewController(withIdentifier: "MapViewViewController") as! MapViewViewController
+      //  newArray = dataStore?.officeData ?? []
+        guard let data = dataStore?.officeData else {
+            print("problem here")
+            return
+            
+        }
+        destinationVC.router?.dataStore?.offices = data
+        
+    }
+    
     
     
     weak var viewController: OfficesViewController?

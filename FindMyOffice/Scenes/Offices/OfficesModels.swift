@@ -36,7 +36,11 @@ enum Offices {
                 var image: String?
                 var images: [ImageUrls]?
                 var id: String?
+                var location: Location?
                 
+            }
+            struct Location: Codable {
+                var latitude, longitude: Double?
             }
           
         }

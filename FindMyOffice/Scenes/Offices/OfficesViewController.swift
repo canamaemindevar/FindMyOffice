@@ -16,7 +16,7 @@ final class OfficesViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
     var interactor: (OfficesBusinessLogic & GetFilteredData)?
-    var router: (OfficesRoutingLogic & OfficesDataPassing & GoToFavorites)?
+    var router: (OfficesRoutingLogic & OfficesDataPassing & GoToFavorites & GoToMapView)?
     var viewModel: Offices.Fetch.ViewModel?
     var pickerView = UIPickerView()
     var idArray = [String]()
@@ -48,16 +48,21 @@ final class OfficesViewController: UIViewController{
         pickerView.dataSource = self
         pickerView.delegate = self
         
+        
         setupOptions()
         filterTextField.inputView = pickerView
         createToolBarForPickerView()
-        retiveData()
+        router?.routeToMapView()
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        retiveData()
+      //  tableView.reloadData()
+        
     }
+    
     
     func createToolBarForPickerView(){
         let toolBar = UIToolbar()
@@ -119,6 +124,7 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = viewModel?.offices[indexPath.row]  else {
             return UITableViewCell()
         }
+        retiveData()
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5
         cell.layer.borderColor = UIColor(named: "btnBorderColor")?.cgColor
@@ -129,11 +135,12 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.favedBtn = true
         
         for i in idArray {
-            if i == model.id {
+            if i == model.id{
                 cell.favButton.tintColor = .yellow
                 cell.favedBtn = false
             }
         }
+        
         return cell
     }
     

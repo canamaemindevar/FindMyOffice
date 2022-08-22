@@ -9,12 +9,16 @@ import UIKit
 import MapKit
 
 protocol MapViewDisplayLogic: AnyObject {
-    
+    func displayOfficeLocation(viewModels:Offices.Fetch.ViewModel)
 }
 
 final class MapViewViewController: UIViewController {
     
-    var interactor: MapViewBusinessLogic?
+    var viewModel: Offices.Fetch.ViewModel?
+    
+    var interactor: MapViewBusinessLogic?{didSet {
+        interactor?.fetchOffices(request: Offices.Fetch.Request())
+    }}
     var router: (MapViewRoutingLogic & MapViewDataPassing)?
     
     @IBOutlet weak var mapView: MKMapView!
@@ -32,7 +36,9 @@ final class MapViewViewController: UIViewController {
     
     override func viewDidLoad() {
         mapView.delegate = self
-        mapView.addAnnotation(Annotation(coordinate: .init(latitude: 40, longitude: 30), title: "Home"))
+     //   mapView.addAnnotation(Annotation(coordinate: .init(latitude: 40, longitude: 30), title: "Home"))
+        
+        setAnnotation()
     }
     
     // MARK: Setup
@@ -49,11 +55,23 @@ final class MapViewViewController: UIViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
+    func setAnnotation(){
+        viewModel?.offices.forEach { officeLocation in
+            mapView.addAnnotation(Annotation(coordinate: .init(latitude: officeLocation.location?.latitude ?? 0.0, longitude: officeLocation.location?.longitude ?? 0.0), title: officeLocation.name))
+        }
+    }
     
     
 }
 
 extension MapViewViewController: MapViewDisplayLogic {
+    func displayOfficeLocation(viewModels: Offices.Fetch.ViewModel) {
+        self.viewModel = viewModels
+       
+        
+     
+    }
+    
     
 }
 
