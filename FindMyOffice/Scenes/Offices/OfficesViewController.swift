@@ -48,7 +48,7 @@ final class OfficesViewController: UIViewController{
         pickerView.dataSource = self
         pickerView.delegate = self
         
-        
+    //    retiveData()
         setupOptions()
         filterTextField.inputView = pickerView
         createToolBarForPickerView()
@@ -59,7 +59,7 @@ final class OfficesViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         retiveData()
-      //  tableView.reloadData()
+       tableView.reloadData()
         
     }
     
@@ -131,16 +131,17 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(viewModel: model)
         cell.favoriteActionsdelegate = self
         cell.favDeletedDelegate = self
-        
+        cell.favButton.tintColor = .white
         cell.favedBtn = true
         
         for i in idArray {
             if i == model.id{
                 cell.favButton.tintColor = .yellow
+                
                 cell.favedBtn = false
+                
             }
         }
-        
         return cell
     }
     
