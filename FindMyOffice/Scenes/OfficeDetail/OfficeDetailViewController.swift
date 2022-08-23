@@ -150,7 +150,8 @@ extension OfficeDetailViewController: OfficeDetailDisplayLogic , getIndexFromFul
     func displayOfficeDetail(viewModel: OfficeDetail.Fetch.ViewModel) {
         self.viewModel = viewModel
         DispatchQueue.main.async {
-            self.nameLabel.text =  "Name: \(viewModel.name!)"
+            self.navigationItem.title = "\(viewModel.name!)"
+     //       self.nameLabel.text =  "Name: \(viewModel.name!)"
             self.adressLabel.text = "Adress: \(viewModel.address!)"
             self.roomsLabel.text = "Rooms: \(viewModel.rooms!)"
             self.capacityLabel.text = "Capacity: \(viewModel.capacity!)"

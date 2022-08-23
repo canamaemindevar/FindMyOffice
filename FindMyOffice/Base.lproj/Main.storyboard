@@ -93,6 +93,7 @@
                             <constraint firstItem="wWr-Jm-LuM" firstAttribute="leading" secondItem="wrD-qw-z65" secondAttribute="leading" constant="20" id="RVM-ab-OqR"/>
                             <constraint firstItem="bVP-p7-r6R" firstAttribute="leading" secondItem="wrD-qw-z65" secondAttribute="leading" id="Z9z-AS-ki3"/>
                             <constraint firstItem="wrD-qw-z65" firstAttribute="trailing" secondItem="bVP-p7-r6R" secondAttribute="trailing" id="e5z-a2-Of0"/>
+                            <constraint firstItem="wWr-Jm-LuM" firstAttribute="height" secondItem="FSw-LY-hZf" secondAttribute="height" multiplier="0.283482" id="h57-2d-chA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bWk-My-XdR"/>
