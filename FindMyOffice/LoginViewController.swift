@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Security
 
 class LoginViewController: UIViewController {
 
@@ -24,7 +25,7 @@ class LoginViewController: UIViewController {
         } else {
             // hide
         }
-        
+        mailTextfield.delegate = self
 
         print(ShowVersion)
     }
@@ -73,6 +74,10 @@ class LoginViewController: UIViewController {
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Color")!])
     }
+    
+    
+    
+    
     weak var viewController: LoginViewController?
     
     func goToPageController(){
@@ -80,9 +85,22 @@ class LoginViewController: UIViewController {
     }
 
 }
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let result = KeyChainManager().getFromChain(mail: mailTextfield.text!) else {
+            print("Failed to read password")
+            return
+        }
+        let password = String(decoding:result,as: UTF8.self )
+        print(password)
+        passwordTextField.text = password
+        
+    }
+    
+    
+}
 
 
 
-/*
 
- */
+

@@ -235,6 +235,17 @@
 			path = Offices;
 			sourceTree = "<group>";
 		};
+		FA4E2E2628B4B16C002F302A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA96B55E2872FABA0025B979 /* AppDelegate.swift */,
+				FA96B5602872FABA0025B979 /* SceneDelegate.swift */,
+				FA96B5692872FABB0025B979 /* LaunchScreen.storyboard */,
+				FA96B5672872FABB0025B979 /* Assets.xcassets */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FA62C736289E710D00794892 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,16 +294,13 @@
 		FA96B55D2872FABA0025B979 /* FindMyOffice */ = {
 			isa = PBXGroup;
 			children = (
+				FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */,
 				FA28FA9B289BEC7E009B528F /* Network */,
 				FAC2F1F128AF98CD00C18D64 /* Scenes */,
-				FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */,
-				FA96B55E2872FABA0025B979 /* AppDelegate.swift */,
-				FA96B5602872FABA0025B979 /* SceneDelegate.swift */,
+				FA4E2E2628B4B16C002F302A /* Helpers */,
 				FA96B5622872FABA0025B979 /* LoginViewController.swift */,
 				FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */,
 				FA96B5642872FABA0025B979 /* Main.storyboard */,
-				FA96B5692872FABB0025B979 /* LaunchScreen.storyboard */,
-				FA96B5672872FABB0025B979 /* Assets.xcassets */,
 				FA96B56C2872FABB0025B979 /* Info.plist */,
 				FAC2F1BD28AA22CC00C18D64 /* FindMyOffice.xcdatamodeld */,
 			);
