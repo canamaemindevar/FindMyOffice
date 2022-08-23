@@ -93,14 +93,7 @@ extension LoginViewController: UITextFieldDelegate {
         }
         let password = String(decoding:result,as: UTF8.self )
         print(password)
-        passwordTextField.text = password
-        
+        passwordTextField.text = password  
     }
-    
-    
+
 }
-
-
-
-
-

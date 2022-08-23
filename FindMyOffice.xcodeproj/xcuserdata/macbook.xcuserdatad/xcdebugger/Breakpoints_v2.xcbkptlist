@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B53FF5B-8222-4C61-BD46-F6AE025D2342"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FindMyOffice/Scenes/MapView/MapViewViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C6AE5B84-E0BC-4843-AD99-73D5A3F6C79A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -156,8 +140,8 @@
             filePath = "FindMyOffice/Scenes/MapView/MapViewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "displayOfficeLocation(viewModels:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -172,8 +156,8 @@
             filePath = "FindMyOffice/Scenes/MapView/MapViewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "setAnnotation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -188,8 +172,8 @@
             filePath = "FindMyOffice/Scenes/MapView/MapViewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "setAnnotation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -204,8 +188,8 @@
             filePath = "FindMyOffice/Scenes/MapView/MapViewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "setAnnotation()"
             landmarkType = "7">
          </BreakpointContent>

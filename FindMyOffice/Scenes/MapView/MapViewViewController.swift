@@ -36,8 +36,6 @@ final class MapViewViewController: UIViewController {
     
     override func viewDidLoad() {
         mapView.delegate = self
-     //   mapView.addAnnotation(Annotation(coordinate: .init(latitude: 40, longitude: 30), title: "Home"))
-        
         setAnnotation()
     }
     
@@ -60,21 +58,61 @@ final class MapViewViewController: UIViewController {
             mapView.addAnnotation(Annotation(coordinate: .init(latitude: officeLocation.location?.latitude ?? 0.0, longitude: officeLocation.location?.longitude ?? 0.0), title: officeLocation.name))
         }
     }
-    
-    
 }
 
 extension MapViewViewController: MapViewDisplayLogic {
     func displayOfficeLocation(viewModels: Offices.Fetch.ViewModel) {
         self.viewModel = viewModels
-       
-        
-     
     }
-    
-    
 }
 
+
+//MARK: Mapview Config + navigate to apple maps
+extension MapViewViewController {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return nil // hides user location
+        }
+        
+        let reuseId = "myAnnotation"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier:reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = .gray
+            
+            let button = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+        }
+        else {
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let choosenAnnotation = view.annotation else {return}
+        
+        let location = CLLocation(latitude: choosenAnnotation.coordinate.latitude,
+                                                     longitude: choosenAnnotation.coordinate.longitude)
+        CLGeocoder().reverseGeocodeLocation(location) { placemark, Error in
+            if  let  placemarks = placemark  {
+                let newPlacemark = MKPlacemark(placemark: placemarks[0])
+                                            
+                                            let item = MKMapItem(placemark: newPlacemark)
+                                            
+                                            item.name = choosenAnnotation.title ?? "Not Found Offices"
+                                            
+                                            let launchOption = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                                            
+                                            item.openInMaps(launchOptions: launchOption)
+            }
+        }
+    }
+}
+
+//MARK: Mapview Delegate + Class
 
 extension MapViewViewController:MKMapViewDelegate{
     
@@ -106,3 +144,5 @@ extension MapViewViewController:MKMapViewDelegate{
             }
     }
 }
+
+

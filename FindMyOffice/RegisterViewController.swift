@@ -71,14 +71,10 @@ class RegisterViewController: UIViewController {
         }
         
     }
-    
-    
-    
+
 }
 
-extension RegisterViewController {
-    
-}
+//MARK: KeyChain part
 
 
 class KeyChainManager {
