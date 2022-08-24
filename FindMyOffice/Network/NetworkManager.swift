@@ -9,13 +9,8 @@ import Foundation
 protocol NetworkManagerProtocol{
     func getOffice(completion: @escaping ((Result<OfficeResponse,Error>) -> Void))
 }
-
-
-
 // completion: @escaping (OfficeResponse?) -> Void
 struct NetworkManager: NetworkManagerProtocol{
-    
-    
     func getOffice(completion: @escaping ((Result<OfficeResponse,Error>) -> Void)){
     let fullUrl = "\(API.url)"
         guard let url = URL(string: fullUrl) else { return }
@@ -27,11 +22,7 @@ struct NetworkManager: NetworkManagerProtocol{
             if let officeJson = officeJson {
             completion(.success(officeJson))
             }
-            
-            
         }
         .resume()
-        
     }
-    
 }

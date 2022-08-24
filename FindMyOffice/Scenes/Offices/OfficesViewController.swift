@@ -48,17 +48,19 @@ final class OfficesViewController: UIViewController{
         pickerView.dataSource = self
         pickerView.delegate = self
         
-    //    retiveData()
+   
         setupOptions()
         filterTextField.inputView = pickerView
         createToolBarForPickerView()
         router?.routeToMapView()
         
         
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         retiveData()
+     //   self.navigationController?.navigationBar.isHidden = true
        tableView.reloadData()
         
     }
@@ -114,7 +116,9 @@ extension OfficesViewController: OfficesDisplayLogic {
         print(viewModel.offices)
     }
 }
-// MARK: tableView
+
+// MARK: TableView
+
 extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,12 +138,12 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.favButton.tintColor = .white
         cell.favedBtn = true
         
+        
         for i in idArray {
             if i == model.id{
                 cell.favButton.tintColor = .yellow
                 
                 cell.favedBtn = false
-                
             }
         }
         return cell
@@ -155,6 +159,8 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
       
     }
 }
+
+//MARK: PickerView
 
 extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -190,6 +196,9 @@ extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 
     
 }
+
+// MARK: Fav button
+
 extension OfficesViewController: favoriteActions, deleteFavAction {
    
     func favSelected(viewModel: Offices.Fetch.ViewModel.Office) {

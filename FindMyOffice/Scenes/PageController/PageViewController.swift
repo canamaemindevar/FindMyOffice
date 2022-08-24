@@ -19,7 +19,7 @@ class PageViewController: UIPageViewController {
         let destinationVC1: OfficesViewController = storyboard1.instantiateViewController(withIdentifier: "OfficesViewController") as! OfficesViewController
         let storyboard2 = UIStoryboard(name: "MapView", bundle: nil)
         let destinationVC2: MapViewViewController = storyboard2.instantiateViewController(withIdentifier: "MapViewViewController") as! MapViewViewController
-        
+        navigationItem.setHidesBackButton(true, animated: false)
         vcs = [destinationVC1,destinationVC2]
         
         
