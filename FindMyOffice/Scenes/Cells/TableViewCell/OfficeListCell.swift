@@ -49,7 +49,7 @@ class OfficeListCell: UITableViewCell {
             favoriteActionsdelegate?.favSelected(viewModel: ViewModel!)
             print("bastın")
         } else {
-            favButton.tintColor = .black
+            favButton.tintColor = .white
             favButton.setImage(UIImage(named: "custom.star.circle"), for: .normal)
             favedBtn = true
             favDeletedDelegate?.favDeleted(viewModel: ViewModel!)

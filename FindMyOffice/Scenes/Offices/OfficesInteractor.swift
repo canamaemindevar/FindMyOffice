@@ -17,6 +17,10 @@ protocol OfficesDataStore: AnyObject {
 protocol GetFilteredData: AnyObject{
     func filterRequest(request: String)
 }
+//protocol GetFromCoreData: AnyObject{
+//
+//    func retriveData(idArray: [Int])
+//}
 
 final class OfficesInteractor: OfficesBusinessLogic, OfficesDataStore {
     var officeData: OfficeResponse?
@@ -59,3 +63,20 @@ extension OfficesInteractor: GetFilteredData{
 
 
 }
+
+//extension OfficesInteractor: GetFromCoreData  {
+//  
+//    func retriveData(idArray: [Int]) {
+//        CoreDataManager().getDataFromCoreData { result in
+//            switch result{
+//            case .success(let ids):
+//                weak var viewController2: OfficesDisplayLogic?
+//                viewController2?.displayId(intArray: ids)
+//            case .failure(_):
+//                print("id getting problem")
+//            }
+//        }
+//    }
+//    
+//    
+//}

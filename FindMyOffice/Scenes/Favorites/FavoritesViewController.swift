@@ -24,7 +24,7 @@ final class FavoritesViewController: UIViewController{
     var rooms = [String]()
     var capacity = [String]()
     var image = [String]()
-    var id = [String]()
+    var id = [Int]()
     var adress = [String]()
     var fav = [Bool]()
     
@@ -67,7 +67,7 @@ extension FavoritesViewController: FavoritesDisplayLogic {
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return id.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,72 +79,39 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         cell.roomsLabel.text = rooms[indexPath.row]
         cell.officeView.sd_setImage(with: URL(string: image[indexPath.row] ))
         cell.favButton.tintColor = .yellow
-       
-       
-        
-        
-        
-        
-            
+ 
         return cell
         }
    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
-                let context = appDelegate.persistentContainer.viewContext
-                
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
-                fetchRequest.returnsObjectsAsFaults = false
-                
-                let idString = id[indexPath.row]
-                fetchRequest.predicate = NSPredicate(format: "id = %@", idString)
-                
-                do{
-                    let results = try context.fetch(fetchRequest)
-                    
-                    if results.count>0{
-                        for result in results as! [NSManagedObject] {
-                          
-                            context.delete(result)
-                            id.remove(at: indexPath.row)
-                            names.remove(at: indexPath.row)
-                            self.tableView.reloadData()
-                            
-                            do {
-                                try context.save()
-                            } catch  {
-                                print("error saving")
-                            }
-                     
-                        }
-                    }
-                } catch {
-                    print("error deleting")
-                }
-                
-            }
+        
+            CoreDataManager().deleteCoreData(with:id[indexPath.row])
+        
+               id.remove(at: indexPath.row)
+            names.remove(at: indexPath.row)
+            rooms.remove(at: indexPath.row)
+            image.remove(at: indexPath.row)
+
+            
+            self.tableView.reloadData()
         }
     }
-    
-    
 }
 
 
 
 extension FavoritesViewController{
     func retrieveValues(){
-        
-                // names.removeAll(keepingCapacity: false)
-        
+
                   if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
                       let context = appDelegate.persistentContainer.viewContext
                       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
                       fetchRequest.returnsObjectsAsFaults = false
-    
+
                      do{
                          let results = try context.fetch(fetchRequest)
-    
+
                          for result in results as! [NSManagedObject]{
                              if let name = result.value(forKey: "name") as? String{
                                  self.names.append(name)
@@ -155,7 +122,7 @@ extension FavoritesViewController{
                              if let image = result.value(forKey: "image") as? String{
                                  self.image.append(image)
                              }
-                             if let id = result.value(forKey: "id") as? String{
+                             if let id = result.value(forKey: "id") as? Int{
                                  self.id.append(id)
                              }
                              if let capacity = result.value(forKey: "capacity") as? String{
@@ -168,7 +135,7 @@ extension FavoritesViewController{
                                  self.fav.append(fav)
                              }
                              self.tableView.reloadData()
-                             
+
                          }
                      }catch {
                          print("Could not retrieve")

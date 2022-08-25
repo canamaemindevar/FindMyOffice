@@ -10,16 +10,19 @@ import CoreData
 
 protocol OfficesDisplayLogic: AnyObject {
     func displayOffice(viewModel:Offices.Fetch.ViewModel)
+   // func displayId(intArray: [Int])
 }
 
 final class OfficesViewController: UIViewController{
+   
+    
 
     @IBOutlet weak var tableView: UITableView!
     var interactor: (OfficesBusinessLogic & GetFilteredData)?
     var router: (OfficesRoutingLogic & OfficesDataPassing & GoToFavorites & GoToMapView)?
     var viewModel: Offices.Fetch.ViewModel?
     var pickerView = UIPickerView()
-    var idArray = [String]()
+    var idArray: [Int] = []
     
     var options = [Options]()
     var faved = false
@@ -44,6 +47,7 @@ final class OfficesViewController: UIViewController{
     
     override func viewDidLoad() {
         interactor?.fetchOffices(request: Offices.Fetch.Request())
+
         tableView.register(UINib(nibName: "OfficeListCell", bundle: nil), forCellReuseIdentifier: "MyCell")
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -59,8 +63,8 @@ final class OfficesViewController: UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        retiveData()
-     //   self.navigationController?.navigationBar.isHidden = true
+   //     interactor?.retriveData(idArray: idArray)
+                retiveData()
        tableView.reloadData()
         
     }
@@ -107,6 +111,10 @@ final class OfficesViewController: UIViewController{
 }
 
 extension OfficesViewController: OfficesDisplayLogic {
+//    func displayId(intArray: [Int]) {
+//       idArray = intArray
+//    }
+    
     func displayOffice(viewModel: Offices.Fetch.ViewModel) {
         self.viewModel = viewModel
         DispatchQueue.main.async {
@@ -128,6 +136,7 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = viewModel?.offices[indexPath.row]  else {
             return UITableViewCell()
         }
+    //    interactor?.retriveData(idArray: idArray)
         retiveData()
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5
@@ -200,83 +209,29 @@ extension OfficesViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 // MARK: Fav button
 
 extension OfficesViewController: favoriteActions, deleteFavAction {
-   
+
     func favSelected(viewModel: Offices.Fetch.ViewModel.Office) {
 
-        if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
-            let context = appDelegate.persistentContainer.viewContext
-
-            let entityDescription = NSEntityDescription.insertNewObject(forEntityName: "OfficeModel", into: context)
-           // entityDescription.setValue(viewModel.images, forKey: "images")
-            entityDescription.setValue(viewModel.name, forKey: "name")
-            entityDescription.setValue(viewModel.rooms, forKey: "rooms")
-            entityDescription.setValue(viewModel.address, forKey: "adress")
-            entityDescription.setValue(viewModel.capacity, forKey: "capacity")
-            entityDescription.setValue(viewModel.image, forKey: "image")
-            entityDescription.setValue(viewModel.id, forKey: "id")
-            entityDescription.setValue(true, forKey: "fav")
-            do{
-                try context.save()
-                print("Saved")
-            }catch{
-                print("Saving Error")
-            }
-    }
+        CoreDataManager().saveCoreData(with: viewModel)
 
 }
     func favDeleted(viewModel: Offices.Fetch.ViewModel.Office) {
-        if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
-            let context = appDelegate.persistentContainer.viewContext
-            
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
-            fetchRequest.returnsObjectsAsFaults = false
-            
-           
-            fetchRequest.predicate = NSPredicate(format: "id = %@", "\(viewModel.id ?? "")")
-            
-            do{
-                let results = try context.fetch(fetchRequest)
-                
-                if results.count>=0{
-                    for result in results as! [NSManagedObject] {
-                        if let id = result.value(forKey: "id") as? String {
-                            if    id == viewModel.id {
-                                context.delete(result)
-                                do {
-                                    try context.save()
-                                    
-                                } catch  {
-                                }
-                            }
-                        }
-                        self.tableView.reloadData()
-                    }
-                }
-            } catch {
-                print("error deleting")
-            }
-        }
-}
-    
-    func retiveData(){
-        if let appDelegate = UIApplication.shared.delegate as?AppDelegate {
-            let context = appDelegate.persistentContainer.viewContext
-            
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
-            fetchRequest.returnsObjectsAsFaults = false
-            
-            do {
-                let results = try context.fetch(fetchRequest)
-                for result in results as! [NSManagedObject] {
-                    if let idFromCore = result.value(forKey: "id") as? String {
-                        idArray.append(idFromCore)
-                    }
-                }
-            } catch  {
-                print("Retive Data Error")
-            }
- 
-        }
 
+        CoreDataManager().deleteCoreData(with: viewModel.id ?? 99)
+}
+
+
+    func retiveData(){
+
+        CoreDataManager().getDataFromCoreData { result in
+            switch result{
+            case .success(let ids):
+                self.idArray = ids
+            case .failure(_):
+                print("id getting problem")
+            }
+        }
+      
     }
+
 }
