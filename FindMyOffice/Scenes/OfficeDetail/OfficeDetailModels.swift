@@ -18,7 +18,8 @@ enum OfficeDetail {
         
         struct Response {
             let officeDetail: OfficeResponseElement?
-                  //          element
+            
+          //  let isVideo: Bool?
         }
         
         struct ViewModel {
@@ -31,6 +32,11 @@ enum OfficeDetail {
             var image: String?
             var images: [String]?
             
+        }
+        
+        struct Media{
+            var url: String?
+            var isVideo: Bool?
         }
         
     }

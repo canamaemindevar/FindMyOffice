@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,14 +32,6 @@
                                     <outlet property="delegate" destination="b7S-ue-lFe" id="cIO-Zf-fTN"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-C9-0fU">
-                                <rect key="frame" x="148" y="340.5" width="118" height="36"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Go To Website"/>
-                                <connections>
-                                    <action selector="showWebsite:" destination="b7S-ue-lFe" eventType="touchUpInside" id="Ygz-N7-gLc"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ais-A7-Dpd" userLabel="DetailView">
                                 <rect key="frame" x="0.0" y="654.5" width="414" height="207.5"/>
                                 <subviews>
@@ -145,15 +138,60 @@
                                     <constraint firstItem="BJg-oH-5gP" firstAttribute="top" secondItem="Ais-A7-Dpd" secondAttribute="top" id="tP4-JM-4CA"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pE0-xW-Mzf" userLabel="VideoView">
+                                <rect key="frame" x="0.0" y="340.5" width="414" height="278"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO9-xf-YCM">
+                                        <rect key="frame" x="364" y="228" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="S4N-Qy-Dfa"/>
+                                            <constraint firstAttribute="height" constant="50" id="ggB-Lg-ejW"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="fullScreen:" destination="b7S-ue-lFe" eventType="touchUpInside" id="opG-TM-txf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5N-5s-xRG">
+                                        <rect key="frame" x="182" y="114" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="DUB-ny-2Hx"/>
+                                            <constraint firstAttribute="width" constant="50" id="NBv-NX-EXo"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="playButton:" destination="b7S-ue-lFe" eventType="touchUpInside" id="Fjs-k6-5wD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstItem="e5N-5s-xRG" firstAttribute="centerX" secondItem="pE0-xW-Mzf" secondAttribute="centerX" id="DiQ-kk-M1W"/>
+                                    <constraint firstItem="e5N-5s-xRG" firstAttribute="centerY" secondItem="pE0-xW-Mzf" secondAttribute="centerY" id="F3H-n9-oDL"/>
+                                    <constraint firstAttribute="trailing" secondItem="mO9-xf-YCM" secondAttribute="trailing" id="d7O-lP-lNa"/>
+                                    <constraint firstAttribute="bottom" secondItem="mO9-xf-YCM" secondAttribute="bottom" id="wDq-SG-SXd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-C9-0fU">
+                                <rect key="frame" x="148" y="618.5" width="118" height="36"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Go To Website"/>
+                                <connections>
+                                    <action selector="showWebsite:" destination="b7S-ue-lFe" eventType="touchUpInside" id="Ygz-N7-gLc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WnA-dH-sbi"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="IZc-eo-HlR" firstAttribute="height" secondItem="ZTr-Kx-uZD" secondAttribute="height" multiplier="0.33" constant="1" id="02P-1n-RZd"/>
-                            <constraint firstItem="TXo-C9-0fU" firstAttribute="top" secondItem="IZc-eo-HlR" secondAttribute="bottom" id="7CS-yh-42e"/>
+                            <constraint firstItem="pE0-xW-Mzf" firstAttribute="leading" secondItem="WnA-dH-sbi" secondAttribute="leading" id="3aW-TL-yY2"/>
                             <constraint firstItem="Ais-A7-Dpd" firstAttribute="height" secondItem="IZc-eo-HlR" secondAttribute="height" multiplier="0.7" id="B18-Qw-AlM"/>
                             <constraint firstItem="TXo-C9-0fU" firstAttribute="height" secondItem="ZTr-Kx-uZD" secondAttribute="height" multiplier="0.04" id="LLX-ZD-1v8"/>
                             <constraint firstAttribute="trailing" secondItem="IZc-eo-HlR" secondAttribute="trailing" id="SYp-6T-wbT"/>
+                            <constraint firstItem="Ais-A7-Dpd" firstAttribute="top" secondItem="TXo-C9-0fU" secondAttribute="bottom" id="TNk-gH-OQF"/>
                             <constraint firstItem="WnA-dH-sbi" firstAttribute="bottom" secondItem="Ais-A7-Dpd" secondAttribute="bottom" id="Tuq-Gn-JWm"/>
                             <constraint firstItem="IZc-eo-HlR" firstAttribute="leading" secondItem="WnA-dH-sbi" secondAttribute="leading" id="XwB-5f-Oty"/>
                             <constraint firstItem="Ais-A7-Dpd" firstAttribute="trailing" secondItem="IZc-eo-HlR" secondAttribute="trailing" id="Xz4-8Q-nT4"/>
@@ -161,6 +199,9 @@
                             <constraint firstItem="Ais-A7-Dpd" firstAttribute="bottom" secondItem="WnA-dH-sbi" secondAttribute="bottom" id="ffw-2H-qT0"/>
                             <constraint firstItem="Ais-A7-Dpd" firstAttribute="leading" secondItem="ZTr-Kx-uZD" secondAttribute="leading" id="g5l-95-4pg"/>
                             <constraint firstItem="IZc-eo-HlR" firstAttribute="top" secondItem="WnA-dH-sbi" secondAttribute="top" id="g9U-1q-4sd"/>
+                            <constraint firstItem="pE0-xW-Mzf" firstAttribute="top" secondItem="IZc-eo-HlR" secondAttribute="bottom" id="m2g-3f-cNv"/>
+                            <constraint firstItem="TXo-C9-0fU" firstAttribute="top" secondItem="pE0-xW-Mzf" secondAttribute="bottom" id="mj4-ba-isw"/>
+                            <constraint firstItem="WnA-dH-sbi" firstAttribute="trailing" secondItem="pE0-xW-Mzf" secondAttribute="trailing" id="q0n-r1-LPU"/>
                             <constraint firstItem="Ais-A7-Dpd" firstAttribute="trailing" secondItem="WnA-dH-sbi" secondAttribute="trailing" id="t69-eC-z3t"/>
                         </constraints>
                     </view>
@@ -169,18 +210,24 @@
                         <outlet property="adressLabel" destination="Glw-zY-AbO" id="KfA-UT-RVt"/>
                         <outlet property="capacityLabel" destination="gFH-AX-XVV" id="SF5-1s-1sL"/>
                         <outlet property="collectionView" destination="IZc-eo-HlR" id="iRm-Y0-uco"/>
+                        <outlet property="fullScreenOutlet" destination="mO9-xf-YCM" id="NPy-2X-C8g"/>
+                        <outlet property="playButtonOutlet" destination="e5N-5s-xRG" id="GLQ-hB-EuA"/>
                         <outlet property="roomsLabel" destination="dJn-B4-oZR" id="s3X-so-AeO"/>
                         <outlet property="spaceLabel" destination="Fuq-N3-7xb" id="iEP-Gm-tdw"/>
+                        <outlet property="videoView" destination="pE0-xW-Mzf" id="Ixd-Mh-3AV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tf5-Kb-Zzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-197.59999999999999" y="-129.08545727136433"/>
+            <point key="canvasLocation" x="-198.55072463768118" y="-129.24107142857142"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="background">
             <color red="0.97600001096725464" green="0.85500001907348633" blue="0.3919999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

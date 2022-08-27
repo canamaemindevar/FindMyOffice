@@ -6,28 +6,42 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 protocol OfficeDetailDisplayLogic: AnyObject {
     func displayOfficeDetail(viewModel: OfficeDetail.Fetch.ViewModel)
 }
 
+let videoName = "video"
+
 final class OfficeDetailViewController: UIViewController {
     
     
+    @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var roomsLabel: UILabel!
     @IBOutlet weak var capacityLabel: UILabel!
     @IBOutlet weak var spaceLabel: UILabel!
+    @IBOutlet weak var playButtonOutlet: UIButton!
+    @IBOutlet weak var fullScreenOutlet: UIButton!
+    
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var myPlayer: AVPlayer!
+    
     var interactor: OfficeDetailBusinessLogic?
     var router: (OfficeDetailRoutingLogic & OfficeDetailDataPassing)?
     
     
     var viewModel: OfficeDetail.Fetch.ViewModel?
     let layout = UICollectionViewFlowLayout()
+    @IBAction func fullScreen(_ sender: UIButton) {
+        fullScreenPlay()
+    }
     
     // MARK: Object lifecycle
     
@@ -61,8 +75,10 @@ final class OfficeDetailViewController: UIViewController {
     }
     
     
+    
     func setUpForCollection(){
         self.collectionView.register(UINib(nibName: "OfficeImagesCell", bundle: .main), forCellWithReuseIdentifier: "OfficeImagesCell")
+        self.collectionView.register(UINib(nibName: "VideoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "VideoCell")
         
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 5
@@ -79,9 +95,66 @@ final class OfficeDetailViewController: UIViewController {
         super.viewDidLoad()
         interactor?.fetchOfficeDetail(request: OfficeDetail.Fetch.Request())
         setUpForCollection()
+        configureVideoPlayer()
     }
     
     
+
+
+// MARK: video part
+
+
+    func configureVideoPlayer() {
+        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
+            print("video  not found")
+            return
+        }
+        myPlayer = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerLayer = AVPlayerLayer(player: myPlayer)
+        playerLayer.frame = videoView.bounds
+        videoView.layer.addSublayer(playerLayer)
+        videoView.addSubview(playButtonOutlet)
+        videoView.addSubview(fullScreenOutlet)
+    }
+    
+    func fullScreenPlay(){
+        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
+            print("video  not found")
+            return
+        }
+        
+        pause()
+        
+        let playerController = AVPlayerViewController()
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        playerController.player = player
+        present(playerController, animated: true) {
+            player.play()
+        }
+    }
+    @IBAction func playButton(_ sender: UIButton) {
+       playPause()
+         
+    }
+    func playPause() {
+        switch myPlayer.timeControlStatus {
+        case .playing:
+            pause()
+        case .paused:
+           play()
+        default:
+            break
+        }
+    }
+    private func play() {
+        myPlayer.play()
+        playButtonOutlet.setTitle("Pause", for: .normal)
+    }
+    
+    private func pause() {
+        myPlayer.pause()
+        playButtonOutlet.setTitle("Play", for: .normal)
+    }
 }
 
 
@@ -94,7 +167,28 @@ extension OfficeDetailViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //değiştir
+    /*    if viewModel?.images.isVideo == true {
+     guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as? VideoCollectionViewCell
+                // VideoCell
+        else {
+         return UICollectionViewCell()}
+    } else {
      guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfficeImagesCell", for: indexPath) as? OfficeImagesCell
+                // VideoCell
+        else {
+         return UICollectionViewCell()}
+        
+        guard let model = viewModel else {
+            return UICollectionViewCell()
+        }
+        cell.configure(images: model.images?[indexPath.row] ?? "")
+        
+        return cell
+        
+    }
+     } */
+     guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfficeImagesCell", for: indexPath) as? OfficeImagesCell
+                // VideoCell
         else {
          return UICollectionViewCell()}
         
@@ -125,9 +219,7 @@ extension OfficeDetailViewController: UICollectionViewDelegate, UICollectionView
     }
     
     
-//    func getIndex(indexPath: IndexPath){ // from fullscreen
-//        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//    }
+
     
     
 }
@@ -150,13 +242,13 @@ extension OfficeDetailViewController: OfficeDetailDisplayLogic , getIndexFromFul
     func displayOfficeDetail(viewModel: OfficeDetail.Fetch.ViewModel) {
         self.viewModel = viewModel
         DispatchQueue.main.async {
-            self.navigationItem.title = "\(viewModel.name!)"
-     //       self.nameLabel.text =  "Name: \(viewModel.name!)"
-            self.adressLabel.text = "Adress: \(viewModel.address!)"
-            self.roomsLabel.text = "Rooms: \(viewModel.rooms!)"
-            self.capacityLabel.text = "Capacity: \(viewModel.capacity!)"
-            self.spaceLabel.text = "Space: \(viewModel.space!)"
-            self.collectionView.reloadData()
+//            self.navigationItem.title = "\(viewModel.name!)"
+// 
+//            self.adressLabel.text = "Adress: \(viewModel.address!)"
+//            self.roomsLabel.text = "Rooms: \(viewModel.rooms!)"
+//            self.capacityLabel.text = "Capacity: \(viewModel.capacity!)"
+//            self.spaceLabel.text = "Space: \(viewModel.space!)"
+           self.collectionView.reloadData()
             
             
         }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="gTV-IL-0wX" customClass="VideoCollectionViewCell" customModule="FindMyOffice" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="247" height="128"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="247" height="128"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9XA-hR-YVm">
+                        <rect key="frame" x="0.0" y="0.0" width="247" height="128"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nI-03-AJP">
+                                <rect key="frame" x="108.5" y="49" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="U9i-wO-mX7"/>
+                                    <constraint firstAttribute="width" constant="30" id="Ufc-3q-n8f"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="play"/>
+                                <connections>
+                                    <action selector="playButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4tA-6I-SYE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nK9-p5-Wk5">
+                                <rect key="frame" x="217" y="98" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="K3K-G1-I9s"/>
+                                    <constraint firstAttribute="width" constant="30" id="syE-9r-oDz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="f"/>
+                                <connections>
+                                    <action selector="fullScreenButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="syH-sq-gQ2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4nI-03-AJP" firstAttribute="centerX" secondItem="9XA-hR-YVm" secondAttribute="centerX" id="9Yk-IA-AOv"/>
+                            <constraint firstAttribute="bottom" secondItem="nK9-p5-Wk5" secondAttribute="bottom" id="LH7-9T-3He"/>
+                            <constraint firstItem="4nI-03-AJP" firstAttribute="centerY" secondItem="9XA-hR-YVm" secondAttribute="centerY" id="XEN-2y-bt0"/>
+                            <constraint firstAttribute="trailing" secondItem="nK9-p5-Wk5" secondAttribute="trailing" id="Yfq-vU-KmP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="9XA-hR-YVm" secondAttribute="bottom" id="A67-Xr-img"/>
+                <constraint firstItem="9XA-hR-YVm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="E9O-Sj-Uif"/>
+                <constraint firstAttribute="trailing" secondItem="9XA-hR-YVm" secondAttribute="trailing" id="F3X-gu-esC"/>
+                <constraint firstItem="9XA-hR-YVm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IKc-2b-Y6J"/>
+            </constraints>
+            <size key="customSize" width="331" height="158"/>
+            <connections>
+                <outlet property="fullScreenButtonOutlet" destination="nK9-p5-Wk5" id="ZMj-8x-RkW"/>
+                <outlet property="playButtonOutlet" destination="4nI-03-AJP" id="Klh-zS-emh"/>
+                <outlet property="videoView" destination="9XA-hR-YVm" id="yTp-Ta-hB5"/>
+            </connections>
+            <point key="canvasLocation" x="142.75362318840581" y="73.660714285714278"/>
+        </collectionViewCell>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="hbe-bO-2WB">
+            <rect key="frame" x="0.0" y="0.0" width="67" height="31"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+            <point key="canvasLocation" x="159" y="1"/>
+        </button>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
