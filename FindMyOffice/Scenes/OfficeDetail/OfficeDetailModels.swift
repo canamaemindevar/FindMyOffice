@@ -30,7 +30,7 @@ enum OfficeDetail {
             var capacity: String?
             var space: String?
             var image: String?
-            var images: [String]?
+            var images: [Media]?
             
         }
         
