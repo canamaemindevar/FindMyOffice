@@ -36,11 +36,11 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
     
     var viewModel: OfficeDetail.Fetch.ViewModel?
     let layout = UICollectionViewFlowLayout()
-    var myPlayer: AVPlayer!
+  //  var myPlayer: AVPlayer!
     
-    @IBAction func fullScreen(_ sender: UIButton) {
-        fullScreenPlay()
-    }
+//    @IBAction func fullScreen(_ sender: UIButton) {
+//        fullScreenPlay()
+//    }
     
     // MARK: Object lifecycle
     
@@ -95,8 +95,8 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
         interactor?.fetchOfficeDetail(request: OfficeDetail.Fetch.Request())
       //  fullScreenDelegate = self
         setUpForCollection()
-        configureVideoPlayer()
-       
+     //   configureVideoPlayer()
+        videoView.isHidden = true
     }
     
     
@@ -109,59 +109,60 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
     }
 
 
-    func configureVideoPlayer() {
-        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
-            print("video  not found")
-            return
-        }
-        myPlayer = AVPlayer(url: URL(fileURLWithPath: path))
-        let playerLayer = AVPlayerLayer(player: myPlayer)
-        playerLayer.frame = videoView.bounds
-        videoView.layer.addSublayer(playerLayer)
-        videoView.addSubview(playButtonOutlet)
-        videoView.addSubview(fullScreenOutlet)
-        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
-        fullScreenOutlet.setImage(UIImage(systemName: "command"), for: .normal)
-    }
-    
-    func fullScreenPlay(){
-        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
-            print("video  not found")
-            return
-        }
-        
-        pause()
-        
-        let playerController = AVPlayerViewController()
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        playerController.player = player
-        present(playerController, animated: true) {
-            player.play()
-        }
-    }
-    @IBAction func playButton(_ sender: UIButton) {
-       playPause()
-         
-    }
-    func playPause() {
-        switch myPlayer.timeControlStatus {
-        case .playing:
-            pause()
-        case .paused:
-           play()
-        default:
-            break
-        }
-    }
-    private func play() {
-        myPlayer.play()
-        playButtonOutlet.setImage(UIImage(systemName: "pause"), for: .normal)
-    }
-    
-    private func pause() {
-        myPlayer.pause()
-        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
-    }
+//    func configureVideoPlayer() {
+//        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
+//            print("video  not found")
+//            return
+//        }
+//        myPlayer = AVPlayer(url: URL(fileURLWithPath: path))
+//        let playerLayer = AVPlayerLayer(player: myPlayer)
+//        playerLayer.frame = videoView.bounds
+//        playerLayer.videoGravity = .resizeAspect
+//        videoView.layer.addSublayer(playerLayer)
+//        videoView.addSubview(playButtonOutlet)
+//        videoView.addSubview(fullScreenOutlet)
+//        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
+//        fullScreenOutlet.setImage(UIImage(systemName: "command"), for: .normal)
+//    }
+//
+//    func fullScreenPlay(){
+//        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
+//            print("video  not found")
+//            return
+//        }
+//
+//        pause()
+//
+//        let playerController = AVPlayerViewController()
+//        let player = AVPlayer(url: URL(fileURLWithPath: path))
+//        playerController.player = player
+//        present(playerController, animated: true) {
+//            player.play()
+//        }
+//    }
+//    @IBAction func playButton(_ sender: UIButton) {
+//       playPause()
+//
+//    }
+//    func playPause() {
+//        switch myPlayer.timeControlStatus {
+//        case .playing:
+//            pause()
+//        case .paused:
+//           play()
+//        default:
+//            break
+//        }
+//    }
+//    private func play() {
+//        myPlayer.play()
+//        playButtonOutlet.setImage(UIImage(systemName: "pause"), for: .normal)
+//    }
+//
+//    private func pause() {
+//        myPlayer.pause()
+//        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
+//    }
     
   /////////////
     func fullScreenForCell(){
