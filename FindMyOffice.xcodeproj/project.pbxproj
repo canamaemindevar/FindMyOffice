@@ -18,6 +18,7 @@
 		FA28FAAF289BEDA9009B528F /* OfficesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA8289BEDA9009B528F /* OfficesWorker.swift */; };
 		FA28FAB0289BEDA9009B528F /* OfficesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28FAA9289BEDA9009B528F /* OfficesRouter.swift */; };
 		FA49A7FF28BA5A9500783583 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FA49A7FE28BA582200783583 /* video.mp4 */; };
+		FA49A80228BD02F300783583 /* KeyChainManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A80128BD02F300783583 /* KeyChainManger.swift */; };
 		FA62C73D289E724B00794892 /* OfficeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62C73B289E724B00794892 /* OfficeListCell.swift */; };
 		FA62C73E289E724B00794892 /* OfficeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA62C73C289E724B00794892 /* OfficeListCell.xib */; };
 		FA62C741289E737800794892 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FA62C740289E737800794892 /* SDWebImage */; };
@@ -108,6 +109,7 @@
 		FA28FAA8289BEDA9009B528F /* OfficesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesWorker.swift; sourceTree = "<group>"; };
 		FA28FAA9289BEDA9009B528F /* OfficesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficesRouter.swift; sourceTree = "<group>"; };
 		FA49A7FE28BA582200783583 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		FA49A80128BD02F300783583 /* KeyChainManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManger.swift; sourceTree = "<group>"; };
 		FA62C73B289E724B00794892 /* OfficeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeListCell.swift; sourceTree = "<group>"; };
 		FA62C73C289E724B00794892 /* OfficeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeListCell.xib; sourceTree = "<group>"; };
 		FA62C745289E948600794892 /* OfficeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OfficeDetail.storyboard; sourceTree = "<group>"; };
@@ -243,6 +245,34 @@
 			path = Offices;
 			sourceTree = "<group>";
 		};
+		FA49A80028BD02CC00783583 /* KeyChain Manger */ = {
+			isa = PBXGroup;
+			children = (
+				FA49A80128BD02F300783583 /* KeyChainManger.swift */,
+			);
+			path = "KeyChain Manger";
+			sourceTree = "<group>";
+		};
+		FA49A80328BD036900783583 /* Login&Register */ = {
+			isa = PBXGroup;
+			children = (
+				FA96B5622872FABA0025B979 /* LoginViewController.swift */,
+				FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */,
+				FA96B5642872FABA0025B979 /* Main.storyboard */,
+			);
+			path = "Login&Register";
+			sourceTree = "<group>";
+		};
+		FA49A80428BD03D900783583 /* Network&Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FAD96AFE28B6586D009C43D3 /* CoreData Manager */,
+				FA49A80028BD02CC00783583 /* KeyChain Manger */,
+				FA28FA9B289BEC7E009B528F /* Network */,
+			);
+			path = "Network&Managers";
+			sourceTree = "<group>";
+		};
 		FA4E2E2628B4B16C002F302A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,13 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				FABB3CDD28744B9B009CEC8B /* FindMyOffice.entitlements */,
-				FAD96AFE28B6586D009C43D3 /* CoreData Manager */,
-				FA28FA9B289BEC7E009B528F /* Network */,
+				FA49A80428BD03D900783583 /* Network&Managers */,
 				FAC2F1F128AF98CD00C18D64 /* Scenes */,
 				FA4E2E2628B4B16C002F302A /* Helpers */,
-				FA96B5622872FABA0025B979 /* LoginViewController.swift */,
-				FAEEE61C2890912000AA4E4F /* RegisterViewController.swift */,
-				FA96B5642872FABA0025B979 /* Main.storyboard */,
 				FA96B56C2872FABB0025B979 /* Info.plist */,
 				FAC2F1BD28AA22CC00C18D64 /* FindMyOffice.xcdatamodeld */,
 			);
@@ -377,6 +403,7 @@
 			children = (
 				FA62C736289E710D00794892 /* Cells */,
 				FAC2F1F228B1011A00C18D64 /* PageController */,
+				FA49A80328BD036900783583 /* Login&Register */,
 				FA28FAB1289BEDB8009B528F /* Offices */,
 				FA62C744289E944D00794892 /* OfficeDetail */,
 				FAE0C19728A1212300E93887 /* FullScreen */,
@@ -632,6 +659,7 @@
 				FAC2F1D828AA94EB00C18D64 /* FavoritesPresenter.swift in Sources */,
 				FAEEE61D2890912000AA4E4F /* RegisterViewController.swift in Sources */,
 				FAC2F1EC28AF7DF200C18D64 /* WebsitePresenter.swift in Sources */,
+				FA49A80228BD02F300783583 /* KeyChainManger.swift in Sources */,
 				FAC2F1F028AF7DF200C18D64 /* WebsiteRouter.swift in Sources */,
 				FAC2F20428B1023F00C18D64 /* MapViewInteractor.swift in Sources */,
 				FAC2F20628B1023F00C18D64 /* MapViewWorker.swift in Sources */,
