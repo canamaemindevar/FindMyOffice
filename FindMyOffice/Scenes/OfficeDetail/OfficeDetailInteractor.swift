@@ -32,3 +32,12 @@ final class OfficeDetailInteractor: OfficeDetailBusinessLogic, OfficeDetailDataS
     var worker: OfficeDetailWorkingLogic = OfficeDetailWorker()
     
 }
+
+//extension OfficeDetailInteractor: ForFullScreen{
+//    fullScreenDelegate = self
+//    func fullScreen() {
+//        OfficeDetailViewController().fullScreenForCell()
+//    }
+//
+//
+//}

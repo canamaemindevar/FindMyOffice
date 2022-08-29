@@ -18,25 +18,22 @@ enum OfficeDetail {
         
         struct Response {
             let officeDetail: OfficeResponseElement?
-            
-          //  let isVideo: Bool?
         }
         
         struct ViewModel {
-
+            
             var name: String?
             var address: String?
             var rooms: Int?
             var capacity: String?
             var space: String?
             var image: String?
-            var images: [Media]?
+            var images: Media?
             
-        }
-        
-        struct Media{
-            var url: String?
-            var isVideo: Bool?
+            struct Media{
+                var url: [String]?
+                var isVideo: Bool?
+            }
         }
         
     }

@@ -15,7 +15,9 @@ protocol OfficeDetailDisplayLogic: AnyObject {
 
 let videoName = "video"
 
-final class OfficeDetailViewController: UIViewController {
+final class OfficeDetailViewController: UIViewController,ForFullScreen {
+   
+    
     
     
     @IBOutlet weak var videoView: UIView!
@@ -26,12 +28,7 @@ final class OfficeDetailViewController: UIViewController {
     @IBOutlet weak var spaceLabel: UILabel!
     @IBOutlet weak var playButtonOutlet: UIButton!
     @IBOutlet weak var fullScreenOutlet: UIButton!
-    
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var myPlayer: AVPlayer!
     
     var interactor: OfficeDetailBusinessLogic?
     var router: (OfficeDetailRoutingLogic & OfficeDetailDataPassing)?
@@ -39,6 +36,8 @@ final class OfficeDetailViewController: UIViewController {
     
     var viewModel: OfficeDetail.Fetch.ViewModel?
     let layout = UICollectionViewFlowLayout()
+    var myPlayer: AVPlayer!
+    
     @IBAction func fullScreen(_ sender: UIButton) {
         fullScreenPlay()
     }
@@ -78,7 +77,7 @@ final class OfficeDetailViewController: UIViewController {
     
     func setUpForCollection(){
         self.collectionView.register(UINib(nibName: "OfficeImagesCell", bundle: .main), forCellWithReuseIdentifier: "OfficeImagesCell")
-        self.collectionView.register(UINib(nibName: "VideoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "VideoCell")
+        self.collectionView.register(UINib(nibName: "VideoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "VideoCollectionViewCell")
         
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 5
@@ -94,14 +93,20 @@ final class OfficeDetailViewController: UIViewController {
     override func viewDidLoad()  {
         super.viewDidLoad()
         interactor?.fetchOfficeDetail(request: OfficeDetail.Fetch.Request())
+      //  fullScreenDelegate = self
         setUpForCollection()
         configureVideoPlayer()
+       
     }
     
     
 
 
 // MARK: video part
+    func fullScreen() {
+        fullScreenForCell()
+        print("geldin bura")
+    }
 
 
     func configureVideoPlayer() {
@@ -115,6 +120,8 @@ final class OfficeDetailViewController: UIViewController {
         videoView.layer.addSublayer(playerLayer)
         videoView.addSubview(playButtonOutlet)
         videoView.addSubview(fullScreenOutlet)
+        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
+        fullScreenOutlet.setImage(UIImage(systemName: "command"), for: .normal)
     }
     
     func fullScreenPlay(){
@@ -148,58 +155,78 @@ final class OfficeDetailViewController: UIViewController {
     }
     private func play() {
         myPlayer.play()
-        playButtonOutlet.setTitle("Pause", for: .normal)
+        playButtonOutlet.setImage(UIImage(systemName: "pause"), for: .normal)
     }
     
     private func pause() {
         myPlayer.pause()
-        playButtonOutlet.setTitle("Play", for: .normal)
+        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
+    }
+    
+  /////////////
+    func fullScreenForCell(){
+        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
+            print("video  not found")
+            return
+        }
+        
+        pause()
+        
+        let playerController = AVPlayerViewController()
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        playerController.player = player
+        present(playerController, animated: true) {
+            player.play()
+        }
     }
 }
 
 
 // MARK: collectionView
 extension OfficeDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { // değiştir
-        print(section)
-        return viewModel?.images?.count ?? 1
-    }
+           print(section)
+           if viewModel?.images?.isVideo == true {
+               return (viewModel?.images?.url?.count ?? 0) + 1 ?? 1
+           }  else {
+               return viewModel?.images?.url?.count  ?? 1
+               
+           }
+       }
+       
+       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+          
+           if viewModel?.images?.isVideo == true && indexPath.item == 0 {
+               guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCollectionViewCell", for: indexPath) as? VideoCollectionViewCell
+                       // VideoCell
+                       
+               else {
+                   return UICollectionViewCell()
+               }
+               cell.fullScreenDelegate = self
+               return cell
+           } else {
+               guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfficeImagesCell", for: indexPath) as? OfficeImagesCell
+                       // VideoCell
+               else {
+                   return UICollectionViewCell()
+                   
+               }
+               
+               if viewModel?.images?.isVideo == true {
+                   cell.configure(images: viewModel?.images?.url?[indexPath.row - 1] ?? "")
+                          }  else {
+                              cell.configure(images: viewModel?.images?.url?[indexPath.row] ?? "")
+                              
+                          }
+                          //cell.configure(images: model.images?.url?[indexPath.row - 1] ?? "")
+                          return cell
+                          
+                      }
+       }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //değiştir
-    /*    if viewModel?.images.isVideo == true {
-     guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as? VideoCollectionViewCell
-                // VideoCell
-        else {
-         return UICollectionViewCell()}
-    } else {
-     guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfficeImagesCell", for: indexPath) as? OfficeImagesCell
-                // VideoCell
-        else {
-         return UICollectionViewCell()}
-        
-        guard let model = viewModel else {
-            return UICollectionViewCell()
-        }
-        cell.configure(images: model.images?[indexPath.row] ?? "")
-        
-        return cell
-        
-    }
-     } */
-     guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfficeImagesCell", for: indexPath) as? OfficeImagesCell
-                // VideoCell
-        else {
-         return UICollectionViewCell()}
-        
-        guard let model = viewModel else {
-            return UICollectionViewCell()
-        }
-        cell.configure(images: model.images?[indexPath.row] ?? "")
-        
-        return cell 
-        
-    }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -242,12 +269,12 @@ extension OfficeDetailViewController: OfficeDetailDisplayLogic , getIndexFromFul
     func displayOfficeDetail(viewModel: OfficeDetail.Fetch.ViewModel) {
         self.viewModel = viewModel
         DispatchQueue.main.async {
-//            self.navigationItem.title = "\(viewModel.name!)"
-// 
-//            self.adressLabel.text = "Adress: \(viewModel.address!)"
-//            self.roomsLabel.text = "Rooms: \(viewModel.rooms!)"
-//            self.capacityLabel.text = "Capacity: \(viewModel.capacity!)"
-//            self.spaceLabel.text = "Space: \(viewModel.space!)"
+            self.navigationItem.title = "\(viewModel.name ?? "")"
+ 
+            self.adressLabel.text = "Adress: \(viewModel.address ?? "")"
+            self.roomsLabel.text = "Rooms: \(String(describing: viewModel.rooms)) )"
+            self.capacityLabel.text = "Capacity: \(viewModel.capacity ?? "")"
+            self.spaceLabel.text = "Space: \(viewModel.space ?? "" )"
            self.collectionView.reloadData()
             
             
@@ -264,4 +291,11 @@ extension OfficeDetailViewController: OfficeDetailDisplayLogic , getIndexFromFul
     
     
 }
-
+//extension OfficeDetailViewController: ForFullScreen{
+//    func fullScreen() {
+//        fullScreenForCell()
+//    }
+//
+//
+//
+//}

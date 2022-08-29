@@ -45,7 +45,6 @@ class OfficeListCell: UITableViewCell {
             favedBtn = false
             favButton.tintColor = .yellow
             favButton.setImage(UIImage(named: "custom.star.circle"), for: .highlighted)
-            //favButton.foregroundColor
             favoriteActionsdelegate?.favSelected(viewModel: ViewModel!)
             print("bastın")
         } else {
@@ -55,11 +54,6 @@ class OfficeListCell: UITableViewCell {
             favDeletedDelegate?.favDeleted(viewModel: ViewModel!)
             print("sildim")
         }
-       
-        /*
-         let imageView = UIImageView(image: image)
-         imageView.tintColor = .systemPink
-         */
         
         
     }

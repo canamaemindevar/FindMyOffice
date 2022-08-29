@@ -58,9 +58,9 @@ final class OfficesViewController: UIViewController{
         createToolBarForPickerView()
         router?.routeToMapView()
        ///
-        let storyboard = UIStoryboard(name: "OfficeDetail", bundle: nil)
-        let destinationVC: OfficeDetailViewController = storyboard.instantiateViewController(withIdentifier: "OfficeDetail") as! OfficeDetailViewController
-        present(destinationVC, animated: true)
+//        let storyboard = UIStoryboard(name: "OfficeDetail", bundle: nil)
+//        let destinationVC: OfficeDetailViewController = storyboard.instantiateViewController(withIdentifier: "OfficeDetail") as! OfficeDetailViewController
+//        present(destinationVC, animated: true)
         
         
     }
