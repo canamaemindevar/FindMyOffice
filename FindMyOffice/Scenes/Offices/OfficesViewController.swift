@@ -57,17 +57,14 @@ final class OfficesViewController: UIViewController{
         filterTextField.inputView = pickerView
         createToolBarForPickerView()
         router?.routeToMapView()
-       ///
-//        let storyboard = UIStoryboard(name: "OfficeDetail", bundle: nil)
-//        let destinationVC: OfficeDetailViewController = storyboard.instantiateViewController(withIdentifier: "OfficeDetail") as! OfficeDetailViewController
-//        present(destinationVC, animated: true)
+
         
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
    //     interactor?.retriveData(idArray: idArray)
-                retiveData()
+        retiveData(idArray: idArray)
        tableView.reloadData()
         
     }
@@ -140,7 +137,7 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     //    interactor?.retriveData(idArray: idArray)
-        retiveData()
+        retiveData(idArray: idArray)
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5
         cell.layer.borderColor = UIColor(named: "btnBorderColor")?.cgColor
@@ -224,7 +221,7 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
 }
 
 
-    func retiveData(){
+    func retiveData(idArray: [Int]){
 
         CoreDataManager().getDataFromCoreData { result in
             switch result{

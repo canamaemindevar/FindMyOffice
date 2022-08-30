@@ -14,10 +14,24 @@ protocol FavoritesBusinessLogic: AnyObject {
 protocol FavoritesDataStore: AnyObject {
    
 }
+protocol CoreDataFav: AnyObject{
+    func coreDataGetFunc(completion: @escaping(([Favorites.Case.ViewModel.ModelForCoreData])->Void))
+}
 
-final class FavoritesInteractor: FavoritesBusinessLogic, FavoritesDataStore {
+final class FavoritesInteractor: FavoritesBusinessLogic, FavoritesDataStore, CoreDataFav{
     
-    
+    func coreDataGetFunc(completion: @escaping(([Favorites.Case.ViewModel.ModelForCoreData])->Void)){
+        CoreDataManager().getDataForFavs { result in
+            switch result{
+                
+            case .success(let favOffices):
+                completion(favOffices)
+            case .failure(_):
+                print("Erro in retrieving values")
+            }
+        }
+       
+    }
    
     
     

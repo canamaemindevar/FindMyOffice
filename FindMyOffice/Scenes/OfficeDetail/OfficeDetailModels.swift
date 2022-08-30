@@ -29,6 +29,8 @@ enum OfficeDetail {
             var space: String?
             var image: String?
             var images: Media?
+            var latitude: Double?
+            var longitude: Double?
             
             struct Media{
                 var url: [String]?

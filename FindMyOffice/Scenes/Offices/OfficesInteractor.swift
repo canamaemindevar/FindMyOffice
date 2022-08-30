@@ -63,7 +63,7 @@ extension OfficesInteractor: GetFilteredData{
 
 
 }
-
+// completion: @escaping(([Favorites.Case.ViewModel.ModelForCoreData])->Void)
 //extension OfficesInteractor: GetFromCoreData  {
 //  
 //    func retriveData(idArray: [Int]) {

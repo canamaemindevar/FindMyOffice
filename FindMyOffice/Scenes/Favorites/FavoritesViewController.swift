@@ -14,19 +14,13 @@ protocol FavoritesDisplayLogic: AnyObject {
 }
 
 final class FavoritesViewController: UIViewController{
-  
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var interactor: FavoritesBusinessLogic?
-    var router: (FavoritesRoutingLogic & FavoritesDataPassing)?
+    var interactor:( FavoritesBusinessLogic & CoreDataFav )?
+    var router: (FavoritesRoutingLogic & FavoritesDataPassing )?
     
-    var names = [String]()
-    var rooms = [String]()
-    var capacity = [String]()
-    var image = [String]()
-    var id = [Int]()
-    var adress = [String]()
-    var fav = [Bool]()
+    var viewModelForFav: [Favorites.Case.ViewModel.ModelForCoreData] = []
     
     
     // MARK: Object lifecycle
@@ -43,6 +37,7 @@ final class FavoritesViewController: UIViewController{
     override func viewDidLoad() {
         tableView.register(UINib(nibName: "OfficeListCell", bundle: nil), forCellReuseIdentifier: "MyCell")
         retrieveValues()
+        
     }
     
     // MARK: Setup
@@ -67,80 +62,40 @@ extension FavoritesViewController: FavoritesDisplayLogic {
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return id.count
+        return viewModelForFav.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as? OfficeListCell else { return UITableViewCell()}
-    
-       
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as? OfficeListCell
+        else { return UITableViewCell()}
         
-        cell.nameLabel.text = names[indexPath.row]
-        cell.roomsLabel.text = rooms[indexPath.row]
-        cell.officeView.sd_setImage(with: URL(string: image[indexPath.row] ))
-        cell.favButton.tintColor = .yellow
- 
+        
+        cell.favButton.isHidden = true
+        cell.nameLabel.text = viewModelForFav[indexPath.row].name
+        cell.roomsLabel.text = viewModelForFav[indexPath.row].rooms
+        cell.officeView.sd_setImage(with: URL(string: viewModelForFav[indexPath.row].image ?? ""))
+        
+        
         return cell
-        }
-   
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-        
-            CoreDataManager().deleteCoreData(with:id[indexPath.row])
-        
-               id.remove(at: indexPath.row)
-            names.remove(at: indexPath.row)
-            rooms.remove(at: indexPath.row)
-            image.remove(at: indexPath.row)
-
+            
+            CoreDataManager().deleteCoreData(with:Int(viewModelForFav[indexPath.row].id ?? 99))
+            
+            viewModelForFav.remove(at: indexPath.row)
+            
             
             self.tableView.reloadData()
         }
     }
-}
-
-
-
-extension FavoritesViewController{
+    
     func retrieveValues(){
-
-                  if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
-                      let context = appDelegate.persistentContainer.viewContext
-                      let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
-                      fetchRequest.returnsObjectsAsFaults = false
-
-                     do{
-                         let results = try context.fetch(fetchRequest)
-
-                         for result in results as! [NSManagedObject]{
-                             if let name = result.value(forKey: "name") as? String{
-                                 self.names.append(name)
-                             }
-                             if let room = result.value(forKey: "rooms") as? String{
-                                 self.rooms.append(room)
-                             }
-                             if let image = result.value(forKey: "image") as? String{
-                                 self.image.append(image)
-                             }
-                             if let id = result.value(forKey: "id") as? Int{
-                                 self.id.append(id)
-                             }
-                             if let capacity = result.value(forKey: "capacity") as? String{
-                                 self.capacity.append(capacity)
-                             }
-                             if let adress = result.value(forKey: "adress") as? String{
-                                 self.adress.append(adress)
-                             }
-                             if let fav = result.value(forKey: "fav") as? Bool{
-                                 self.fav.append(fav)
-                             }
-                             self.tableView.reloadData()
-
-                         }
-                     }catch {
-                         print("Could not retrieve")
-                     }
-                  }
-              }
+        
+        interactor?.coreDataGetFunc { result in
+            self.viewModelForFav = result
+        }
+    }
 }
 

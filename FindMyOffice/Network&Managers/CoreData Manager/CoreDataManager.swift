@@ -42,7 +42,7 @@ class CoreDataManager{
            // entityDescription.setValue(viewModel.images, forKey: "images")
             entityDescription.setValue(viewModel.name, forKey: "name")
             entityDescription.setValue(viewModel.rooms, forKey: "rooms")
-            entityDescription.setValue(viewModel.address, forKey: "adress")
+            entityDescription.setValue(viewModel.address, forKey: "address")
             entityDescription.setValue(viewModel.capacity, forKey: "capacity")
             entityDescription.setValue(viewModel.image, forKey: "image")
             entityDescription.setValue(viewModel.id, forKey: "id")
@@ -121,7 +121,24 @@ class CoreDataManager{
 
     }
     
-    
+    func getDataForFavs(completion: @escaping ((Result<[Favorites.Case.ViewModel.ModelForCoreData],Error>) -> Void)){
+        var AnArray: [Favorites.Case.ViewModel.ModelForCoreData] = []
+        if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
+                             let context = appDelegate.persistentContainer.viewContext
+                             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"OfficeModel")
+                             fetchRequest.returnsObjectsAsFaults = false
+            
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                for result in results as! [NSManagedObject] {
+                    AnArray.append(Favorites.Case.ViewModel.ModelForCoreData(office: result as! OfficeModel))
+                }
+                completion(.success(AnArray))
+            } catch  {
+                
+            }
+    }
     
     
 }
@@ -130,3 +147,4 @@ class CoreDataManager{
     
     
 
+}
