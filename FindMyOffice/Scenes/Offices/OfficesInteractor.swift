@@ -17,10 +17,9 @@ protocol OfficesDataStore: AnyObject {
 protocol GetFilteredData: AnyObject{
     func filterRequest(request: String)
 }
-//protocol GetFromCoreData: AnyObject{
-//
-//    func retriveData(idArray: [Int])
-//}
+protocol CoreDataIdCheck: AnyObject{
+    func getForCheck(completion: @escaping([Int])->Void)
+}
 
 final class OfficesInteractor: OfficesBusinessLogic, OfficesDataStore {
     var officeData: OfficeResponse?
@@ -63,20 +62,21 @@ extension OfficesInteractor: GetFilteredData{
 
 
 }
-// completion: @escaping(([Favorites.Case.ViewModel.ModelForCoreData])->Void)
-//extension OfficesInteractor: GetFromCoreData  {
-//  
-//    func retriveData(idArray: [Int]) {
-//        CoreDataManager().getDataFromCoreData { result in
-//            switch result{
-//            case .success(let ids):
-//                weak var viewController2: OfficesDisplayLogic?
-//                viewController2?.displayId(intArray: ids)
-//            case .failure(_):
-//                print("id getting problem")
-//            }
-//        }
-//    }
-//    
-//    
-//}
+
+extension OfficesInteractor: CoreDataIdCheck  {
+
+    func getForCheck(completion: @escaping([Int])->Void){
+        CoreDataManager().getDataFromCoreData() { result in
+            switch result {
+            case .success(let ids):
+                completion (ids)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    
+}
+
+

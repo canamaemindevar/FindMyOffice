@@ -18,7 +18,7 @@ final class OfficesViewController: UIViewController{
     
 
     @IBOutlet weak var tableView: UITableView!
-    var interactor: (OfficesBusinessLogic & GetFilteredData)?
+    var interactor: (OfficesBusinessLogic & GetFilteredData & CoreDataIdCheck)?
     var router: (OfficesRoutingLogic & OfficesDataPassing & GoToFavorites & GoToMapView)?
     var viewModel: Offices.Fetch.ViewModel?
     var pickerView = UIPickerView()
@@ -63,8 +63,9 @@ final class OfficesViewController: UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-   //     interactor?.retriveData(idArray: idArray)
-        retiveData(idArray: idArray)
+     //   interactor?.getForCheck(completion: <#T##([Int]) -> Void#>)
+      //  retiveData(idArray: idArray)
+        checkForFav()
        tableView.reloadData()
         
     }
@@ -136,8 +137,7 @@ extension OfficesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = viewModel?.offices[indexPath.row]  else {
             return UITableViewCell()
         }
-    //    interactor?.retriveData(idArray: idArray)
-        retiveData(idArray: idArray)
+    
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5
         cell.layer.borderColor = UIColor(named: "btnBorderColor")?.cgColor
@@ -221,17 +221,11 @@ extension OfficesViewController: favoriteActions, deleteFavAction {
 }
 
 
-    func retiveData(idArray: [Int]){
-
-        CoreDataManager().getDataFromCoreData { result in
-            switch result{
-            case .success(let ids):
-                self.idArray = ids
-            case .failure(_):
-                print("id getting problem")
-            }
-        }
-      
+    
+    
+    func checkForFav(){
+        interactor?.getForCheck(completion: { result in
+            self.idArray = result
+        })
     }
-
 }
