@@ -91,6 +91,7 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
         super.viewDidLoad()
         interactor?.fetchOfficeDetail(request: OfficeDetail.Fetch.Request())
         setUpForCollection()
+        
         Mapview.delegate = self
         setAnnotation()
         
@@ -105,7 +106,6 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
 // MARK: video part
     func fullScreen() {
         fullScreenForCell()
-        print("geldin bura")
     }
 
 
@@ -118,7 +118,7 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
             return
         }
         
-        pause()
+     //   pause()
         
         let playerController = AVPlayerViewController()
         let player = AVPlayer(url: URL(fileURLWithPath: path))

@@ -43,24 +43,7 @@ class VideoCollectionViewCell: UICollectionViewCell{
         fullScreenButtonOutlet.setImage(UIImage(systemName: "command"), for: .normal)
     }
     
-    func fullScreenPlay(){
-     
-        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
-            print("video  not found")
-            return
-        }
-        
-        pause()
-        
-        let playerController = AVPlayerViewController()
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        playerController.player = player
-//        present(playerController, animated: true) {
-//            player.play()
-//        }
-    
-    
-    }
+
     
     private func play() {
         mySecondPlayer.play()
