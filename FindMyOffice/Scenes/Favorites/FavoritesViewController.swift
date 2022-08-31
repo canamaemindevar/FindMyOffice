@@ -91,6 +91,9 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+
+    
+    
     func retrieveValues(){
         
         interactor?.coreDataGetFunc { result in

@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import MapKit
 
 protocol OfficeDetailDisplayLogic: AnyObject {
     func displayOfficeDetail(viewModel: OfficeDetail.Fetch.ViewModel)
@@ -19,15 +20,15 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
    
     
     
+    @IBOutlet weak var Mapview: MKMapView!
     
     @IBOutlet weak var videoView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
+  
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var roomsLabel: UILabel!
     @IBOutlet weak var capacityLabel: UILabel!
     @IBOutlet weak var spaceLabel: UILabel!
-    @IBOutlet weak var playButtonOutlet: UIButton!
-    @IBOutlet weak var fullScreenOutlet: UIButton!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var interactor: OfficeDetailBusinessLogic?
@@ -36,11 +37,7 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
     
     var viewModel: OfficeDetail.Fetch.ViewModel?
     let layout = UICollectionViewFlowLayout()
-  //  var myPlayer: AVPlayer!
-    
-//    @IBAction func fullScreen(_ sender: UIButton) {
-//        fullScreenPlay()
-//    }
+
     
     // MARK: Object lifecycle
     
@@ -93,14 +90,17 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
     override func viewDidLoad()  {
         super.viewDidLoad()
         interactor?.fetchOfficeDetail(request: OfficeDetail.Fetch.Request())
-      //  fullScreenDelegate = self
         setUpForCollection()
-     //   configureVideoPlayer()
-        videoView.isHidden = true
+        Mapview.delegate = self
+        setAnnotation()
+        
     }
     
     
+    func setAnnotation(){
+        Mapview.addAnnotation(Annotation(coordinate: CLLocationCoordinate2D(latitude: viewModel?.latitude ?? 99.0, longitude: viewModel?.longitude ?? 0.0), title: viewModel?.name))
 
+        }
 
 // MARK: video part
     func fullScreen() {
@@ -109,60 +109,7 @@ final class OfficeDetailViewController: UIViewController,ForFullScreen {
     }
 
 
-//    func configureVideoPlayer() {
-//        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
-//            print("video  not found")
-//            return
-//        }
-//        myPlayer = AVPlayer(url: URL(fileURLWithPath: path))
-//        let playerLayer = AVPlayerLayer(player: myPlayer)
-//        playerLayer.frame = videoView.bounds
-//        playerLayer.videoGravity = .resizeAspect
-//        videoView.layer.addSublayer(playerLayer)
-//        videoView.addSubview(playButtonOutlet)
-//        videoView.addSubview(fullScreenOutlet)
-//        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
-//        fullScreenOutlet.setImage(UIImage(systemName: "command"), for: .normal)
-//    }
-//
-//    func fullScreenPlay(){
-//        guard let path = Bundle.main.path(forResource: videoName, ofType:"mp4") else {
-//            print("video  not found")
-//            return
-//        }
-//
-//        pause()
-//
-//        let playerController = AVPlayerViewController()
-//        let player = AVPlayer(url: URL(fileURLWithPath: path))
-//        playerController.player = player
-//        present(playerController, animated: true) {
-//            player.play()
-//        }
-//    }
-//    @IBAction func playButton(_ sender: UIButton) {
-//       playPause()
-//
-//    }
-//    func playPause() {
-//        switch myPlayer.timeControlStatus {
-//        case .playing:
-//            pause()
-//        case .paused:
-//           play()
-//        default:
-//            break
-//        }
-//    }
-//    private func play() {
-//        myPlayer.play()
-//        playButtonOutlet.setImage(UIImage(systemName: "pause"), for: .normal)
-//    }
-//
-//    private func pause() {
-//        myPlayer.pause()
-//        playButtonOutlet.setImage(UIImage(systemName: "play"), for: .normal)
-//    }
+
     
   /////////////
     func fullScreenForCell(){
@@ -292,11 +239,61 @@ extension OfficeDetailViewController: OfficeDetailDisplayLogic , getIndexFromFul
     
     
 }
-//extension OfficeDetailViewController: ForFullScreen{
-//    func fullScreen() {
-//        fullScreenForCell()
-//    }
-//
-//
-//
-//}
+//MARK: Mapview
+
+extension OfficeDetailViewController:  MKMapViewDelegate{
+  
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return nil // hides user location
+        }
+        
+        let reuseId = "myAnnotation"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier:reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = .gray
+            
+            let button = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+        }
+        else {
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+       
+        
+        let location = CLLocation(latitude: viewModel?.latitude ?? 0.0,
+                                  longitude: viewModel?.longitude ?? 0.0)
+        CLGeocoder().reverseGeocodeLocation(location) { placemark, Error in
+            if  let  placemarks = placemark  {
+                let newPlacemark = MKPlacemark(placemark: placemarks[0])
+                                            
+                                            let item = MKMapItem(placemark: newPlacemark)
+                                            
+                item.name = self.viewModel?.name ?? "Not Found Offices"
+                                            
+                                            let launchOption = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                                            
+                                            item.openInMaps(launchOptions: launchOption)
+            }
+        }
+    }
+    
+    class Annotation: NSObject, MKAnnotation {
+            var coordinate: CLLocationCoordinate2D
+            var title: String?
+            
+            init(coordinate: CLLocationCoordinate2D, title: String?){
+                self.coordinate = coordinate
+                self.title = title
+            }
+    }
+    
+}

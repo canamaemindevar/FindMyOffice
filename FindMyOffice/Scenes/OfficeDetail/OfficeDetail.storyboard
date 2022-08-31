@@ -141,37 +141,16 @@
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="pE0-xW-Mzf" userLabel="VideoView">
                                 <rect key="frame" x="0.0" y="340.5" width="414" height="278"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO9-xf-YCM">
-                                        <rect key="frame" x="364" y="228" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="S4N-Qy-Dfa"/>
-                                            <constraint firstAttribute="height" constant="50" id="ggB-Lg-ejW"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <connections>
-                                            <action selector="fullScreen:" destination="b7S-ue-lFe" eventType="touchUpInside" id="opG-TM-txf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5N-5s-xRG">
-                                        <rect key="frame" x="182" y="114" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="DUB-ny-2Hx"/>
-                                            <constraint firstAttribute="width" constant="50" id="NBv-NX-EXo"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
-                                        <connections>
-                                            <action selector="playButton:" destination="b7S-ue-lFe" eventType="touchUpInside" id="Fjs-k6-5wD"/>
-                                        </connections>
-                                    </button>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DV2-cr-FYV">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="278"/>
+                                    </mapView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstItem="e5N-5s-xRG" firstAttribute="centerX" secondItem="pE0-xW-Mzf" secondAttribute="centerX" id="DiQ-kk-M1W"/>
-                                    <constraint firstItem="e5N-5s-xRG" firstAttribute="centerY" secondItem="pE0-xW-Mzf" secondAttribute="centerY" id="F3H-n9-oDL"/>
-                                    <constraint firstAttribute="trailing" secondItem="mO9-xf-YCM" secondAttribute="trailing" id="d7O-lP-lNa"/>
-                                    <constraint firstAttribute="bottom" secondItem="mO9-xf-YCM" secondAttribute="bottom" id="wDq-SG-SXd"/>
+                                    <constraint firstAttribute="bottom" secondItem="DV2-cr-FYV" secondAttribute="bottom" id="2bG-re-rw0"/>
+                                    <constraint firstItem="DV2-cr-FYV" firstAttribute="top" secondItem="pE0-xW-Mzf" secondAttribute="top" id="Jej-aX-INz"/>
+                                    <constraint firstItem="DV2-cr-FYV" firstAttribute="leading" secondItem="pE0-xW-Mzf" secondAttribute="leading" id="ZJY-c4-4fR"/>
+                                    <constraint firstAttribute="trailing" secondItem="DV2-cr-FYV" secondAttribute="trailing" id="teH-fQ-l27"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-C9-0fU">
@@ -207,11 +186,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Wr-oY-qjv"/>
                     <connections>
+                        <outlet property="Mapview" destination="DV2-cr-FYV" id="uG3-Cf-IfY"/>
                         <outlet property="adressLabel" destination="Glw-zY-AbO" id="KfA-UT-RVt"/>
                         <outlet property="capacityLabel" destination="gFH-AX-XVV" id="SF5-1s-1sL"/>
                         <outlet property="collectionView" destination="IZc-eo-HlR" id="iRm-Y0-uco"/>
-                        <outlet property="fullScreenOutlet" destination="mO9-xf-YCM" id="NPy-2X-C8g"/>
-                        <outlet property="playButtonOutlet" destination="e5N-5s-xRG" id="GLQ-hB-EuA"/>
                         <outlet property="roomsLabel" destination="dJn-B4-oZR" id="s3X-so-AeO"/>
                         <outlet property="spaceLabel" destination="Fuq-N3-7xb" id="iEP-Gm-tdw"/>
                         <outlet property="videoView" destination="pE0-xW-Mzf" id="Ixd-Mh-3AV"/>

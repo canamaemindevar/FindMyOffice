@@ -20,12 +20,18 @@ final class OfficeDetailPresenter: OfficeDetailPresentationLogic {
                                                     rooms: response.officeDetail?.rooms,
                                                     capacity: response.officeDetail?.capacity,
                                                     space: response.officeDetail?.space,
-                                                    image: response.officeDetail?.image,
-                                                    images: OfficeDetail.Fetch.ViewModel.Media(url:
-                                                                                                response.officeDetail?.images,
-                                                                                               isVideo: Bool.random())))
+                                                    image: response.officeDetail?.image, images: OfficeDetail.Fetch.ViewModel.Media(url:
+                                                                                                                                        response.officeDetail?.images,
+                                                                                                                                    isVideo: Bool.random()), latitude: response.officeDetail?.location?.latitude,
+                                                    longitude: response.officeDetail?.location?.longitude))
     }
 
     weak var viewController: OfficeDetailDisplayLogic?
     
 }
+
+/*
+ images: OfficeDetail.Fetch.ViewModel.Media(url:
+                                             response.officeDetail?.images,
+                                            isVideo: Bool.random())))
+ */

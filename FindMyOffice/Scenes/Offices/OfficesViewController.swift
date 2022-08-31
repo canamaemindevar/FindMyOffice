@@ -63,10 +63,9 @@ final class OfficesViewController: UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     //   interactor?.getForCheck(completion: <#T##([Int]) -> Void#>)
-      //  retiveData(idArray: idArray)
         checkForFav()
        tableView.reloadData()
+     //   navigationController?.navigationBar.
         
     }
     
@@ -112,9 +111,7 @@ final class OfficesViewController: UIViewController{
 }
 
 extension OfficesViewController: OfficesDisplayLogic {
-//    func displayId(intArray: [Int]) {
-//       idArray = intArray
-//    }
+
     
     func displayOffice(viewModel: Offices.Fetch.ViewModel) {
         self.viewModel = viewModel

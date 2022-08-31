@@ -116,22 +116,22 @@ extension MapViewViewController {
 
 extension MapViewViewController:MKMapViewDelegate{
     
-    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-        print("mapViewWillStartLoadingMap")
-    }
-    
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        print("mapViewDidFinishLoadingMap")
-    }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let annotation = view.annotation as? Annotation
-        print("didSelect", annotation?.title ?? "")
-    }
-    
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        print("didDeselect")
-    }
+//    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+//        print("mapViewWillStartLoadingMap")
+//    }
+//
+//    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+//        print("mapViewDidFinishLoadingMap")
+//    }
+//
+//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        let annotation = view.annotation as? Annotation
+//        print("didSelect", annotation?.title ?? "")
+//    }
+//
+//    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+//        print("didDeselect")
+//    }
     
     
     class Annotation: NSObject, MKAnnotation {

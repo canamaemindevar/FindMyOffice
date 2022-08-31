@@ -13,26 +13,26 @@ class CoreDataManager{
     static let shared = CoreDataManager()
     
     // get
-    func getFavoriteIdFromCoreData(complationHandler: @escaping ((Result<[Int], Error>) -> Void)){
-            var idArray: [Int] = []
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "OfficeModel")
-
-            fetchRequest.returnsObjectsAsFaults = false
-            do {
-                let data = try context.fetch(fetchRequest)
-                for result in data as! [NSManagedObject] {
-                    if let id = result.value(forKey: "id") as? Int{
-                        idArray.append(id)
-                    }
-                }
-                complationHandler(.success(idArray))
-            }
-            catch {
-                complationHandler(.failure(error))
-            }
-        }
+//    func getFavoriteIdFromCoreData(complationHandler: @escaping ((Result<[Int], Error>) -> Void)){
+//            var idArray: [Int] = []
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let context = appDelegate.persistentContainer.viewContext
+//            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "OfficeModel")
+//
+//            fetchRequest.returnsObjectsAsFaults = false
+//            do {
+//                let data = try context.fetch(fetchRequest)
+//                for result in data as! [NSManagedObject] {
+//                    if let id = result.value(forKey: "id") as? Int{
+//                        idArray.append(id)
+//                    }
+//                }
+//                complationHandler(.success(idArray))
+//            }
+//            catch {
+//                complationHandler(.failure(error))
+//            }
+//        }
     // save
     func saveCoreData(with viewModel: Offices.Fetch.ViewModel.Office){
         if let appDelegate = UIApplication.shared.delegate as?AppDelegate{
